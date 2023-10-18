@@ -1,0 +1,611 @@
+object Form1: TForm1
+  Left = 340
+  Height = 338
+  Top = 183
+  Width = 290
+  Caption = 'Form1'
+  ClientHeight = 338
+  ClientWidth = 290
+  Constraints.MinHeight = 338
+  Constraints.MinWidth = 290
+  Icon.Data = {
+    BE0800000000010001002020000001000800A808000016000000280000002000
+    0000400000000100080000000000000000000000000000000000000000000000
+    0000383738003B373A003B3A3B003D3B3E003F3F3F0047434700444644003E49
+    3F00424D430044574600515551005256530051575200485E4900515B52005D5A
+    5D004B624D005A5D5A005E5C5E0061666200596E5A00577059006C6A6C00626E
+    63005C715D005873590065726700726F72006774680068746900637A65006B79
+    6C00727D7400777D77006D846E006D856F00838083006E887000708872007B85
+    7C006E8B7100748C760080898100758E7700898B890094909300809B82007C9D
+    7E009196910095959500869B87009197910090999200909A91009C969C0098A0
+    9900A19DA10086A987009BA19B008DA78F009DA39D0090A99100A9ABA9008FB5
+    930092B69500ACB0AC00AAB1AB00B2AFB20096BA9800ACB2AD00B0B2B0009EBE
+    A100A0C0A2009FC3A200A0C3A200B8BDB800A5C9A700A6C9A800A5CAA800A7CB
+    AA00A7CCAA00C3C3C300A9CDAC00A9CFAC00AAD0AD00C3C7C400ABD0AE00ACD3
+    AF00AED3B100AED4B000ADD5B000AED5B100CACCCA00B0D8B300B1D8B400B1DA
+    B400CCD0CD00B2DBB400CFD1CF00B3DCB600D1D2D100B5DDB800D2D3D200B6DE
+    B800B6DEB900B6DFB900B7E1BA00B8E1BC00B8E2BB00B9E3BC00D7D8D700BBE5
+    BE00BBE6BE00DBDBDB00DCDCDC00BEE8C100DDDDDD00BEE9C100BFEBC200C0EC
+    C300C1ECC400C1EDC400C2EDC500C3EDC600E4E1E400C3EEC600C4EEC700C3EF
+    C500E3E3E300C4EFC700E4E4E400C4F0C700C4F0C800C5F0C800E5E5E500C6F1
+    C800C6F1C900E7E5E700C7F2CA00C6F3CA00C7F3CA00E8E7E800C8F3CB00C7F4
+    CA00E9E8E800C8F4CB00C9F5CC00EAE9EA00CAF8CE00CCF9D000CDFAD100F0EF
+    F000CFFCD200F1F0F100CFFED300D0FED300D3FFD700D4FFD700D4FFD800F6F3
+    F600D6FFD900D8FFDB00D9FFDC00F5F5F500DDFFE100F8F6F800F8F7F800E1FF
+    E500E2FFE700E4FFE800F9F8F900FBFAFA00FCFCFC00FDFCFD00FFFFFF000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000000000
+    0000AFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF
+    AFAFAF222B2B2B2B2B2B2B2B2B2B25137486808286240D262323232323232323
+    1EAFAF73959595959595959595958B35AEAEAEAEAEAE21839696969696969696
+    6BAFAF677D7D7D7D7D7D7D7D7D7D8809AEAEAEAEAEAE714D7D7D7D7D7D7D7D7D
+    59AFAF687D7D7D7D7D7D7D7D7D7D8C2F43AEAEAEAEAE903B8E7D7D7D7D7D7D7D
+    59AFAF687D7D7D7D7D7D7D7D7D7D817F05AEAEAEAEAE9732947D7D7D7D7D7D7D
+    59AFAF687D7D7D7D7D7D7D7D7D7D7AA900AEAEAEAEAE933D8E7D7D7D7D7D7D7D
+    59AFAF687D7D7D7D7D7D7D7D7D7D7AA704AEAEAEAEAE8247857D7D7D7D7D7D7D
+    59AFAF687D7D7D7D7D7D7D7D7D7D7AA40AAEAEAEAEAE644E7E7D7D7D7D7D7D7D
+    59AFAF687D7D7D7D7D7D7D7D7D7D7AA802AEAEAEAEAE55547D7D7D7D7D7D7D7D
+    59AFAF687D7D7D7D7D7D7D7B7D8585A101AEAEAEAEAE33697D7D7D7D7D7D7D7D
+    59AFAF687D7D7D7D7D7D849DA2615F3F1BAEAEAEAEAE0E837D7D7D7D7D7D7D7D
+    59AFAF687D7D7D7D8165481F0312160FAEAEAEAEAE8D18636D917D7D7D7D7D7D
+    59AFAF687D7D7D785A307299AEAEAEAEAEAEAEAEAEAD624B2A109C887D7D7D7D
+    59AFAF687D7D818311ACAEAEAEAEAEAEAEAEAEAEAEAEAEAEAE890649927D7D7D
+    59AFAF687D7D87149FAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAE31398A7D7D
+    59AFAF687D7D7527AEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAE17777D7D
+    59AFAF687D7D6F37AEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAE3A6A7D7D
+    59AFAF687D7D7034AEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAE456A7D7D
+    59AFAF687D7D791DAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAE3C6C7D7D
+    59AFAF687D7D8E197CAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAE20767D7D
+    59AFAF687D7D7D9A0BAAAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEA515917D7D
+    59AFAF687D7D7D785651AEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAEAB0C9E7D7D7D
+    59AFAF687D7D7D7D81292DAEAEAEAEAEAEAEAEAEAEAEAEAEAEAE3E50837D7D7D
+    59AFAF687D7D7D7D7AA02E46A3AEAEAEAEAEAEAEAEAEAEAEA62C288F7D7D7D7D
+    59AFAF687D7D7D7D7D7A83581C38AEAEAEAEAEAEAEAEAE361A57917D7D7D7D7D
+    59AFAF687D7D7D7D7D7D7D7A98400742606E6E665C4108449B817D7D7D7D7D7D
+    59AFAF687D7D7D7D7D7D7D7D7D888C6A5E524F50535D83887D7D7D7D7D7D7D7D
+    59AFAF687D7D7D7D7D7D7D7D7D7D7D7D7D81817D7D7D7D7D7D7D7D7D7D7D7D7D
+    59AFAF687D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D7D
+    5BAFAF4C5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E
+    4AAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF
+    AFAFFFFFFFFF8000000180000001800000018000000180000001800000018000
+    0001800000018000000180000001800000018000000180000001800000018000
+    0001800000018000000180000001800000018000000180000001800000018000
+    000180000001800000018000000180000001800000018000000180000001FFFF
+    FFFF
+  }
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poDefaultPosOnly
+  LCLVersion = '2.0.10.0'
+  object ComboBox1: TComboBox
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = SpeedButton2
+    Left = 4
+    Height = 28
+    Hint = 'URL'
+    Top = 4
+    Width = 228
+    Anchors = [akTop, akLeft, akRight]
+    AutoComplete = True
+    AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
+    BorderSpacing.Around = 4
+    CharCase = ecLowerCase
+    ItemHeight = 0
+    OnChange = ComboBox1Change
+    ParentShowHint = False
+    ShowHint = True
+    Sorted = True
+    TabOrder = 0
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 20
+    Top = 318
+    Width = 290
+    Panels = <    
+      item
+        Width = 200
+      end>
+    SimplePanel = False
+  end
+  object SpeedButton2: TSpeedButton
+    AnchorSideTop.Control = ComboBox1
+    AnchorSideRight.Control = SpeedButton3
+    Left = 236
+    Height = 22
+    Hint = 'Add URL to list'
+    Top = 8
+    Width = 23
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 4
+    BorderSpacing.Right = 4
+    Enabled = False
+    Flat = True
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      20000000000000040000640000006400000000000000000000000000000A6669
+      6770A8A9A9EBB4B5B5E7B5B7B6E7B6B7B7E8B7B8B7EAB8BAB9EBB9BBBAEBB9BB
+      BAFF618F72F6206E3DFE196B37FF206E3CFF1D6136A40000000100000000A0A2
+      A168CFD2D0D5E6E7E7C7EAECEBCBEDEEEDD2F1F2F1DAF3F4F4E1F7F7F7E9F7F7
+      F7FF288C53FF64BA8DFF95D2B2FF64BA8DFF288C53FF196B378C00000000A9AB
+      AB64D5D7D6D2EDEFEEC3EFF0F0C9E8EAE9D6E8EAE9DFEAECEBE7ECEEEDED1E6F
+      3FFF62BA8BFF60BA87FFFFFFFFFF60B987FF67BC8FFF196B37F700000000AAAD
+      AB64D5D7D6D2ECEEEDC3ECEEEDCBD3D8D6E5CED2D0F0D0D4D2F3D1D5D3F6317B
+      4CFF9CD4B6FFFFFFFFFFFFFFFFFFFFFFFFFF95D2B2FF196B37FF00000000ADAF
+      AE64D6D8D7D1ECEDEDC2EDEFF0C9D4D8D7E3CFD2D0EED0D5D3F0D2D6D5F44488
+      61FF90D3B1FF92D6B1FFFFFFFFFF65BC8CFF67BC8FFF196C3AFD00000000AEB0
+      AF64D6D8D7CFECEEEEC0CABAACD6C6C1BAE7D0D6D4E9D0D3D1EDC1B6ABF4CABA
+      ACFF61AB81FF95D4B4FFBAE6D0FF6ABB8FFF2D8F57FF1E77755E00000000B0B3
+      B164D5D8D7CEEBEEEDBDBD9E87E0B78C6BF8C4B6ACDFC2A690ECB78A67FCD7CB
+      C3FFD1D6D4FF579674FF4F8E66FF408660FF5AA09D550000000200000000B2B4
+      B364D6D8D7CBEBEDEDBAC2A48DDDCD9E73FFC09672FCC99A6FFFC79F7BFDBEB5
+      ADECDEE2E1E7DEE2E0E7F0F2F0DACFD1D0FB7B7E7D270000000000000000B4B6
+      B664D5D7D7C8E9ECECB5BF9F88DBCB996DFFCB996CFFCB996CFFC09772FDB4AC
+      A3EBD5D9D8E7D5D9D8E6EBEDEDD4CFD0D0F87D807F270000000000000000B6B8
+      B864D5D7D6C5E8EBEAB1BB9B82D9C59264FFC59062FFC59162FFBA8E69FDAFA6
+      9DEAD1D6D4E4D2D6D3E3E9EBEACECFD0CFF37E817F270000000000000000B9BB
+      B964D4D7D6C1E6EAE9ACB7967ED7BF8A5CFFBE8859FFBE895AFFB48862FDA9A1
+      98EBCBD0CFE4CCD1CFE3E5E8E7C8CDCFCEF07E8180270000000000000000BABC
+      BB64D3D6D5BDE5E9E8A6B29178D5B98254FFB87F50FFB88051FFB0825CFDA7A0
+      97E8CAD0CDE0CBD0CDDFE3E6E5C1CCCECDEB7F8280260000000000000000BCBE
+      BD64D3D6D4B9E4E6E6A1AE8C72D3B47A4CFFB27747FFB27848FFAB7C55FCA69F
+      96E4CACFCDDCCACFCDDBE1E4E3BACBCDCCE87F8281260000000000000000BEC0
+      BF65D5D8D7B9E7ECEC9FAC896FD2AD7243FFAC6F3FFFAC7040FFA8754DF9B7AB
+      A2C2ECEEEEADECEEEDAEEEF0EFABCCCECDE97F8381270000000000000000AAAD
+      AB4EBCC0BFC7C1B9B0CDA97F61F3B98660FFBA8861FFBA8861FFAF825FFAA095
+      8BD3BCBEBEC6BABCBBC7B9BBBAC6A7A9A8DA7B7E7D1900000000000000009296
+      9405ABB8BC0F956D5026A27250F8B38766FFB38766FFB38766FFAC7E5CDC7F52
+      322D9CA4A610999C9A11979A9811868987117376740100000000
+    }
+    OnClick = SpeedButton2Click
+    ShowHint = True
+    ParentShowHint = False
+  end
+  object SpeedButton3: TSpeedButton
+    AnchorSideTop.Control = ComboBox1
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 263
+    Height = 22
+    Hint = 'Remove URL from list'
+    Top = 8
+    Width = 23
+    Anchors = [akTop, akRight]
+    BorderSpacing.Top = 4
+    BorderSpacing.Right = 4
+    Enabled = False
+    Flat = True
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      20000000000000040000640000006400000000000000000000000000000A6669
+      6770A8A9A9EBB4B5B5E7B5B7B6E7B6B7B7E8B7B8B7EAB8BAB9EBB9BBBAEBB9BB
+      BAFF0000B7FF000083FF000083FF000083FF000083930000000100000000A0A2
+      A168CFD2D0D5E6E7E7C7EAECEBCBEDEEEDD2F1F2F1DAF3F4F4E1F7F7F7E9F7F7
+      F7FF0000B7FF0000D0FF0000EAFF0000D0FF0000B7FF0000839300000000A9AB
+      AB64D5D7D6D2EDEFEEC3EFF0F0C9E8EAE9D6E8EAE9DFEAECEBE7ECEEEDED0000
+      83FF0000D0FF0000D0FF0000D0FF0000D0FF0000D0FF000083FF00000000AAAD
+      AB64D5D7D6D2ECEEEDC3ECEEEDCBD3D8D6E5CED2D0F0D0D4D2F3D1D5D3F60000
+      D0FF0000EAFFFFFFFFFFFFFFFFFFFFFFFFFF0000EAFF000083FF00000000ADAF
+      AE64D6D8D7D1ECEDEDC2EDEFF0C9D4D8D7E3CFD2D0EED0D5D3F0D2D6D5F40000
+      EAFF0000EAFF0000EAFF0000D0FF0000D0FF0000D0FF000083EC00000000AEB0
+      AF64D6D8D7CFECEEEEC0CABAACD6C6C1BAE7D0D6D4E9D0D3D1EDC1B6ABF4CABA
+      ACFF0000EAFF0000EAFF0000EAFF0000D0FF0000B6FF0000834900000000B0B3
+      B164D5D8D7CEEBEEEDBDBD9E87E0B78C6BF8C4B6ACDFC2A690ECB78A67FCD7CB
+      C3FFD1D6D4FF0000EAFF0000D0FF0000D0FF000083380000000200000000B2B4
+      B364D6D8D7CBEBEDEDBAC2A48DDDCD9E73FFC09672FCC99A6FFFC79F7BFDBEB5
+      ADECDEE2E1E7DEE2E0E7F0F2F0DACFD1D0FB7B7E7D240000000000000000B4B6
+      B664D5D7D7C8E9ECECB5BF9F88DBCB996DFFCB996CFFCB996CFFC09772FDB4AC
+      A3EBD5D9D8E7D5D9D8E6EBEDEDD4CFD0D0F87D807F270000000000000000B6B8
+      B864D5D7D6C5E8EBEAB1BB9B82D9C59264FFC59062FFC59162FFBA8E69FDAFA6
+      9DEAD1D6D4E4D2D6D3E3E9EBEACECFD0CFF37E817F270000000000000000B9BB
+      B964D4D7D6C1E6EAE9ACB7967ED7BF8A5CFFBE8859FFBE895AFFB48862FDA9A1
+      98EBCBD0CFE4CCD1CFE3E5E8E7C8CDCFCEF07E8180270000000000000000BABC
+      BB64D3D6D5BDE5E9E8A6B29178D5B98254FFB87F50FFB88051FFB0825CFDA7A0
+      97E8CAD0CDE0CBD0CDDFE3E6E5C1CCCECDEB7F8280260000000000000000BCBE
+      BD64D3D6D4B9E4E6E6A1AE8C72D3B47A4CFFB27747FFB27848FFAB7C55FCA69F
+      96E4CACFCDDCCACFCDDBE1E4E3BACBCDCCE87F8281260000000000000000BEC0
+      BF65D5D8D7B9E7ECEC9FAC896FD2AD7243FFAC6F3FFFAC7040FFA8754DF9B7AB
+      A2C2ECEEEEADECEEEDAEEEF0EFABCCCECDE97F8381270000000000000000AAAD
+      AB4EBCC0BFC7C1B9B0CDA97F61F3B98660FFBA8861FFBA8861FFAF825FFAA095
+      8BD3BCBEBEC6BABCBBC7B9BBBAC6A7A9A8DA7B7E7D1900000000000000009296
+      9405ABB8BC0F956D5026A27250F8B38766FFB38766FFB38766FFAC7E5CDC7F52
+      322D9CA4A610999C9A11979A9811868987117376740100000000
+    }
+    OnClick = SpeedButton3Click
+    ShowHint = True
+    ParentShowHint = False
+  end
+  object PageControl1: TPageControl
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = ComboBox1
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Button7
+    Left = 4
+    Height = 238
+    Top = 36
+    Width = 282
+    ActivePage = TabSheet1
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Left = 4
+    BorderSpacing.Top = 4
+    BorderSpacing.Right = 4
+    BorderSpacing.Bottom = 4
+    TabIndex = 0
+    TabOrder = 1
+    object TabSheet1: TTabSheet
+      Caption = 'Measured values'
+      ClientHeight = 203
+      ClientWidth = 276
+      object Shape2: TShape
+        AnchorSideLeft.Control = Bevel3
+        AnchorSideTop.Control = Bevel3
+        AnchorSideRight.Control = Bevel3
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = Bevel3
+        AnchorSideBottom.Side = asrBottom
+        Left = 6
+        Height = 57
+        Top = 71
+        Width = 196
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Around = 2
+        Brush.Color = 5046272
+      end
+      object Shape1: TShape
+        AnchorSideLeft.Control = Bevel2
+        AnchorSideTop.Control = Bevel2
+        AnchorSideRight.Control = Bevel2
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = Bevel2
+        AnchorSideBottom.Side = asrBottom
+        Left = 6
+        Height = 57
+        Top = 6
+        Width = 196
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Around = 2
+        Brush.Color = 5046272
+      end
+      object Bevel2: TBevel
+        AnchorSideLeft.Control = TabSheet1
+        AnchorSideTop.Control = TabSheet1
+        AnchorSideRight.Control = TabSheet1
+        AnchorSideRight.Side = asrBottom
+        Left = 4
+        Height = 61
+        Top = 4
+        Width = 200
+        BorderSpacing.Around = 4
+      end
+      object Bevel3: TBevel
+        AnchorSideLeft.Control = TabSheet1
+        AnchorSideTop.Control = Bevel2
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = TabSheet1
+        AnchorSideRight.Side = asrBottom
+        Left = 4
+        Height = 61
+        Top = 69
+        Width = 200
+        BorderSpacing.Around = 4
+      end
+      object Label1: TLabel
+        AnchorSideLeft.Control = Bevel2
+        AnchorSideTop.Control = Bevel2
+        AnchorSideBottom.Side = asrBottom
+        Left = 8
+        Height = 15
+        Top = 8
+        Width = 166
+        BorderSpacing.Around = 4
+        Caption = 'Internal relative humidity'
+        Font.Color = clAqua
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label2: TLabel
+        AnchorSideLeft.Control = Bevel3
+        AnchorSideTop.Control = Bevel3
+        Left = 8
+        Height = 15
+        Top = 73
+        Width = 135
+        BorderSpacing.Around = 4
+        Caption = 'Internal temperature'
+        Font.Color = clAqua
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label3: TLabel
+        AnchorSideLeft.Control = Bevel2
+        AnchorSideLeft.Side = asrCenter
+        AnchorSideTop.Control = Bevel2
+        Left = 84
+        Height = 22
+        Top = 27
+        Width = 41
+        BorderSpacing.Top = 23
+        Caption = '0 %'
+        Font.Color = clAqua
+        Font.Height = 20
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label4: TLabel
+        AnchorSideLeft.Control = Bevel3
+        AnchorSideLeft.Side = asrCenter
+        AnchorSideTop.Control = Bevel3
+        Left = 81
+        Height = 22
+        Top = 92
+        Width = 46
+        BorderSpacing.Top = 23
+        Caption = '0 °C'
+        Font.Color = clAqua
+        Font.Height = 20
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object Shape15: TShape
+        AnchorSideLeft.Control = Bevel16
+        AnchorSideTop.Control = Bevel16
+        AnchorSideRight.Control = Bevel16
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = Bevel16
+        AnchorSideBottom.Side = asrBottom
+        Left = 6
+        Height = 57
+        Top = 136
+        Width = 196
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Around = 2
+        Brush.Color = 5046272
+      end
+      object Bevel16: TBevel
+        AnchorSideLeft.Control = TabSheet1
+        AnchorSideTop.Control = Bevel3
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = TabSheet1
+        AnchorSideRight.Side = asrBottom
+        Left = 4
+        Height = 61
+        Top = 134
+        Width = 200
+        BorderSpacing.Around = 4
+      end
+      object Label17: TLabel
+        AnchorSideLeft.Control = Bevel16
+        AnchorSideTop.Control = Bevel16
+        AnchorSideBottom.Side = asrBottom
+        Left = 8
+        Height = 15
+        Top = 138
+        Width = 139
+        BorderSpacing.Around = 4
+        Caption = 'External temperature'
+        Font.Color = clAqua
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label18: TLabel
+        AnchorSideLeft.Control = Bevel16
+        AnchorSideLeft.Side = asrCenter
+        AnchorSideTop.Control = Bevel16
+        Left = 81
+        Height = 22
+        Top = 157
+        Width = 46
+        BorderSpacing.Top = 23
+        Caption = '0 °C'
+        Font.Color = clAqua
+        Font.Height = 20
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object CheckBox1: TCheckBox
+        AnchorSideLeft.Control = Bevel2
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = TabSheet1
+        Left = 208
+        Height = 22
+        Hint = 'Automatic device read'
+        Top = 4
+        Width = 53
+        BorderSpacing.Around = 4
+        Caption = 'auto'
+        OnChange = CheckBox1Change
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 0
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Summary'
+      ClientHeight = 203
+      ClientWidth = 276
+      object ValueListEditor1: TValueListEditor
+        AnchorSideLeft.Control = TabSheet2
+        AnchorSideTop.Control = TabSheet2
+        AnchorSideRight.Control = TabSheet2
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = TabSheet2
+        AnchorSideBottom.Side = asrBottom
+        Left = 4
+        Height = 195
+        Top = 4
+        Width = 268
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Around = 4
+        FixedCols = 0
+        RowCount = 9
+        TabOrder = 0
+        DisplayOptions = [doColumnTitles, doAutoColResize]
+        Options = [goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goRowSelect, goAlwaysShowEditor, goThumbTracking, goColSpanning, goDblClickAutoSize, goSelectionActive]
+        Strings.Strings = (
+          ''
+          ''
+          ''
+          ''
+          ''
+          ''
+          ''
+          ''
+        )
+        ColWidths = (
+          124
+          124
+        )
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'System log'
+      ClientHeight = 203
+      ClientWidth = 276
+      object Memo1: TMemo
+        AnchorSideLeft.Control = TabSheet3
+        AnchorSideTop.Control = TabSheet3
+        AnchorSideRight.Control = TabSheet3
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = TabSheet3
+        AnchorSideBottom.Side = asrBottom
+        Left = 0
+        Height = 201
+        Top = 0
+        Width = 276
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        HideSelection = False
+        ReadOnly = True
+        ScrollBars = ssAutoBoth
+        TabOrder = 0
+        WordWrap = False
+      end
+    end
+    object TabSheet4: TTabSheet
+      Caption = 'About'
+      ClientHeight = 203
+      ClientWidth = 276
+      object Bevel4: TBevel
+        AnchorSideLeft.Control = TabSheet4
+        AnchorSideTop.Control = TabSheet4
+        AnchorSideRight.Control = TabSheet4
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = TabSheet4
+        AnchorSideBottom.Side = asrBottom
+        Left = 4
+        Height = 195
+        Top = 4
+        Width = 268
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Around = 4
+      end
+      object Label6: TLabel
+        AnchorSideLeft.Control = TabSheet4
+        AnchorSideLeft.Side = asrCenter
+        Left = 113
+        Height = 15
+        Top = 32
+        Width = 51
+        Caption = 'Label6'
+        Font.Style = [fsBold]
+        ParentColor = False
+        ParentFont = False
+      end
+      object Label7: TLabel
+        AnchorSideLeft.Control = TabSheet4
+        AnchorSideRight.Control = TabSheet4
+        AnchorSideRight.Side = asrBottom
+        Left = 16
+        Height = 30
+        Top = 56
+        Width = 244
+        Alignment = taCenter
+        Anchors = [akTop, akLeft, akRight]
+        BorderSpacing.Left = 16
+        BorderSpacing.Right = 16
+        Caption = 'Status reader program for MM17D device'
+        ParentColor = False
+        WordWrap = True
+      end
+      object Label8: TLabel
+        AnchorSideLeft.Control = TabSheet4
+        AnchorSideLeft.Side = asrCenter
+        Left = 71
+        Height = 15
+        Top = 128
+        Width = 135
+        Caption = '(C)2023 Pozsár Zsolt'
+        ParentColor = False
+      end
+      object Label9: TLabel
+        AnchorSideLeft.Control = TabSheet4
+        AnchorSideLeft.Side = asrCenter
+        Cursor = crHandPoint
+        Left = 63
+        Height = 15
+        Top = 152
+        Width = 151
+        Caption = 'http://www.pozsarzs.hu'
+        Font.Color = clBlue
+        ParentColor = False
+        ParentFont = False
+        OnClick = Label9Click
+        OnMouseEnter = Label9MouseEnter
+        OnMouseLeave = Label9MouseLeave
+      end
+    end
+  end
+  object Button7: TButton
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = PageControl1
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = StatusBar1
+    Left = 4
+    Height = 36
+    Top = 278
+    Width = 282
+    Anchors = [akLeft, akRight, akBottom]
+    BorderSpacing.Around = 4
+    Caption = '&Refresh displays'
+    Enabled = False
+    OnClick = Button7Click
+    TabOrder = 2
+  end
+  object Process1: TProcess
+    Active = False
+    Options = []
+    Priority = ppNormal
+    StartupOptions = []
+    ShowWindow = swoNone
+    WindowColumns = 0
+    WindowHeight = 0
+    WindowLeft = 0
+    WindowRows = 0
+    WindowTop = 0
+    WindowWidth = 0
+    FillAttribute = 0
+    Left = 232
+    Top = 168
+  end
+  object Timer1: TTimer
+    Enabled = False
+    OnTimer = Timer1Timer
+    Left = 232
+    Top = 112
+  end
+end

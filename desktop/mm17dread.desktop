@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=MM17DRead
+Exec=mm17dread
+Icon=mm17dread
+Comment=Status reader program for MM17D device
+Type=Application
+Categories=Application;Network;
+Terminal=false
+StartupNotify=true

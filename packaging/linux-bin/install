@@ -1,0 +1,84 @@
+#!/bin/bash
+# +----------------------------------------------------------------------------+
+# | MM17DRead v0.1 * Status reader program for MM17D device                    |
+# | Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>                       |
+# | install                                                                    |
+# | Installer script                                                           |
+# +----------------------------------------------------------------------------+
+
+# constans
+SWN="MM17DRead"
+SWV=`cat documents/VERSION`
+CR=`cat documents/copyright`
+INSTDIR=/opt/mm17dread
+LINKDIR=/usr/local
+SUBDIRS="documents \
+         languages \
+         languages/hu \
+         manuals"
+SYSDIRS="$LINKDIR/bin \
+         $LINKDIR/share/applications \
+         $LINKDIR/share/man/man1 \
+         $LINKDIR/share/pixmaps"
+BINFILE=mm17dread
+CPFILES="$BINFILE \
+         $BINFILE.desktop \
+         $BINFILE.xpm \
+         README \
+         uninstall"
+README=$INSTDIR/README
+
+# installer
+clear
+echo "--------------------------------------------------------------------------------"
+echo "$SWN $SWV installer script"
+echo "$CR"
+echo "--------------------------------------------------------------------------------"
+if [ `whoami` != 'root' ]
+then echo 'ERROR: You are not root!'; exit
+fi
+echo "  This program is free software: you can redistribute it and/or modify it
+under the terms of the European Union Public License 1.2 version.
+
+  This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE."
+echo "--------------------------------------------------------------------------------"
+sleep 3
+echo "Installing..."
+echo "- creating directories:"
+mkdir --parents $INSTDIR 2> /dev/null
+for D in $SUBDIRS
+do
+  mkdir --parents $INSTDIR/$D 2> /dev/null
+  echo "  $INSTDIR/$D"
+done
+for D in $SYSDIRS
+do
+  mkdir --parents $D 2> /dev/null
+  echo "  $D"
+done
+echo "- copying files:"
+for D in $SUBDIRS
+do
+  cp $D/* $INSTDIR/$D 2> /dev/null
+  echo "  "$D'/* --> '$INSTDIR/$D/
+done
+for F in $CPFILES
+do
+  cp $F $INSTDIR/ 2> /dev/null
+  echo "  "$F' --> '$INSTDIR/
+done
+echo "- creating symbolic links:"
+ln -s $INSTDIR/$BINFILE $LINKDIR/bin/$BINFILE 2> /dev/null
+echo "  "$INSTDIR/$BINFILE' --> '$LINKDIR/bin/$BINFILE
+ln -s $INSTDIR/$BINFILE.desktop $LINKDIR/share/applications/$BINFILE.desktop 2> /dev/null
+echo "  "$INSTDIR/$BINFILE.desktop' --> '$LINKDIR/share/applications/$BINFILE.desktop
+ln -s $INSTDIR/$BINFILE.xpm $LINKDIR/share/pixmaps/$BINFILE.xpm 2> /dev/null
+echo "  "$INSTDIR/$BINFILE.xpm' --> '$LINKDIR/share/pixmaps/$BINFILE.xpm
+ln -s $INSTDIR/manuals/"$BINFILE"_en.1 $LINKDIR/share/man/man1/$BINFILE.1 2> /dev/null
+echo "  "$INSTDIR/manuals/"$BINFILE"_en.1' --> '$LINKDIR/share/man/man1/$BINFILE.1
+echo "Done."
+echo ""
+echo "Thank you for installing $SWN,"
+echo "see $README for more information."

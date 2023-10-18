@@ -1,0 +1,50 @@
+# +----------------------------------------------------------------------------+
+# | MM17DRead v0.1 * Status reader program for MM17D device                    |
+# | Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>                       |
+# | Makefile.global                                                            |
+# | Global makefile for Unix-like systems                                      |
+# +----------------------------------------------------------------------------+
+
+copyright	= @copyright@
+name		= mm17dread
+version		= @version@
+architecture	= @architecture@
+os              = @os@
+
+prefix		= @prefix@
+bindir		= @bindir@
+datarootdir	= @datarootdir@
+exec_prefix	= @exec_prefix@
+libdir		= @libdir@
+localedir	= @datarootdir@/locale
+mandir		= @mandir@
+srcdir		= @srcdir@
+sysconfdir	= @sysconfdir@
+lcldir		= @lazdir@
+vardir		= @vardir@
+
+binmode		= 0755
+txtmode		= 0644
+
+install		= @install@
+ln		= @ln@ --symbolic --force
+make		= @make@
+rm		= @rm@ --force
+rmdir		= @rmdir@ --ignore-fail-on-non-empty
+
+fpflag		= -T@os@ \
+                  -dUseFHS \
+                  -MObjFPC \
+                  -Scgi \
+                  -O1 \
+                  -ve \
+                  -Fu../synapse/ \
+                  -Fu@lcldir@/../components/lazutils/lib/@architecture@-@os@/ \
+                  -Fu@lcldir@/../packager/units/@architecture@-@os@/ \
+                  -Fu@lcldir@/units/@architecture@-@os@/ \
+                  -Fu@lcldir@/units/@architecture@-@os@/gtk2/ \
+                  -Fu. \
+                  -Fu../lib/@architecture@-@os@/ \
+                  -FE../lib/@architecture@-@os@/ \
+                  -dLCL \
+                  -dLCLgtk2

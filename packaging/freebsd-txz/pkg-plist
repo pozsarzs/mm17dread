@@ -1,0 +1,12 @@
+bin/mm17dread
+man/man1/mm17dread.1
+share/applications/mm17dread.desktop
+share/doc/mm17dread/AUTHORS
+share/doc/mm17dread/changelog
+share/doc/mm17dread/copyright
+share/doc/mm17dread/INSTALL
+share/doc/mm17dread/LICENCE
+share/doc/mm17dread/README
+share/doc/mm17dread/VERSION
+share/locale/hu/mm17dread.mo
+share/pixmaps/mm17dread.xpm

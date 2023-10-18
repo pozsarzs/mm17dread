@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+if [ "$1" = "configure" ]; then
+  if [ -d /usr/doc -a ! -e /usr/doc/mm17dread -a -d /usr/share/doc/mm17dread ]; then
+    ln -sf /usr/share/doc/mm17dread /usr/doc/mm17dread
+  fi
+fi

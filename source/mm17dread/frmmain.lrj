@@ -1,0 +1,23 @@
+{"version":1,"strings":[
+{"hash":5073153,"name":"tform1.caption","sourcebytes":[70,111,114,109,49],"value":"Form1"},
+{"hash":23148,"name":"tform1.combobox1.hint","sourcebytes":[85,82,76],"value":"URL"},
+{"hash":223156596,"name":"tform1.speedbutton2.hint","sourcebytes":[65,100,100,32,85,82,76,32,116,111,32,108,105,115,116],"value":"Add URL to list"},
+{"hash":64987076,"name":"tform1.speedbutton3.hint","sourcebytes":[82,101,109,111,118,101,32,85,82,76,32,102,114,111,109,32,108,105,115,116],"value":"Remove URL from list"},
+{"hash":258794259,"name":"tform1.tabsheet1.caption","sourcebytes":[77,101,97,115,117,114,101,100,32,118,97,108,117,101,115],"value":"Measured values"},
+{"hash":182973881,"name":"tform1.label1.caption","sourcebytes":[73,110,116,101,114,110,97,108,32,114,101,108,97,116,105,118,101,32,104,117,109,105,100,105,116,121],"value":"Internal relative humidity"},
+{"hash":123636117,"name":"tform1.label2.caption","sourcebytes":[73,110,116,101,114,110,97,108,32,116,101,109,112,101,114,97,116,117,114,101],"value":"Internal temperature"},
+{"hash":12837,"name":"tform1.label3.caption","sourcebytes":[48,32,37],"value":"0 %"},
+{"hash":3329347,"name":"tform1.label4.caption","sourcebytes":[48,32,194,176,67],"value":"0 \u00B0C"},
+{"hash":224299093,"name":"tform1.label17.caption","sourcebytes":[69,120,116,101,114,110,97,108,32,116,101,109,112,101,114,97,116,117,114,101],"value":"External temperature"},
+{"hash":3329347,"name":"tform1.label18.caption","sourcebytes":[48,32,194,176,67],"value":"0 \u00B0C"},
+{"hash":125732276,"name":"tform1.checkbox1.hint","sourcebytes":[65,117,116,111,109,97,116,105,99,32,100,101,118,105,99,101,32,114,101,97,100],"value":"Automatic device read"},
+{"hash":429231,"name":"tform1.checkbox1.caption","sourcebytes":[97,117,116,111],"value":"auto"},
+{"hash":180631753,"name":"tform1.tabsheet2.caption","sourcebytes":[83,117,109,109,97,114,121],"value":"Summary"},
+{"hash":180020215,"name":"tform1.tabsheet3.caption","sourcebytes":[83,121,115,116,101,109,32,108,111,103],"value":"System log"},
+{"hash":4691652,"name":"tform1.tabsheet4.caption","sourcebytes":[65,98,111,117,116],"value":"About"},
+{"hash":86477814,"name":"tform1.label6.caption","sourcebytes":[76,97,98,101,108,54],"value":"Label6"},
+{"hash":18383013,"name":"tform1.label7.caption","sourcebytes":[83,116,97,116,117,115,32,114,101,97,100,101,114,32,112,114,111,103,114,97,109,32,102,111,114,32,77,77,49,55,68,32,100,101,118,105,99,101],"value":"Status reader program for MM17D device"},
+{"hash":253960884,"name":"tform1.label8.caption","sourcebytes":[40,67,41,50,48,50,51,32,80,111,122,115,195,161,114,32,90,115,111,108,116],"value":"(C)2023 Pozs\u00E1r Zsolt"},
+{"hash":51470389,"name":"tform1.label9.caption","sourcebytes":[104,116,116,112,58,47,47,119,119,119,46,112,111,122,115,97,114,122,115,46,104,117],"value":"http://www.pozsarzs.hu"},
+{"hash":138741379,"name":"tform1.button7.caption","sourcebytes":[38,82,101,102,114,101,115,104,32,100,105,115,112,108,97,121,115],"value":"&Refresh displays"}
+]}

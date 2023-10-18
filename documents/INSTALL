@@ -1,0 +1,92 @@
+Installation instruction
+------------------------
+
+1. FreeBSD
+~~~~~~~~~~
+a. From binary (txz) package
+
+   Use package manager to install/remove application.
+
+b. From source package
+
+   Build and install:
+   # tar -xzf mm17dread-0.1.tar.gz
+   # ./configure
+   # make
+   # make install
+
+   Remove:
+   # make uninstall
+
+2. Linux
+~~~~~~~~
+a. From binary (deb, rpm, txz) package
+
+   Use package manager to install/remove application.
+
+b. From binary (bin) package
+
+   Install:
+   # ./mm17dread-0.1-i586.bin
+
+   Remove:
+   # /opt/mm17dread/uninstall
+
+c. From binary (tar.gz) package
+
+   Install:
+   # cp mm17dread-0.1-i586.tar.gz /opt
+   # cd /opt
+   # tar -xzf mm17dread-0.1-i586.tar.gz
+   # cd mm17dread
+   # ./create_links
+            or
+   # tar -xzf mm17dread-0.1-i586.tar.gz
+   # cd mm17dread
+   # ./install
+
+   Remove:
+   # /opt/mm17dread/remove_links
+   # rm -r /opt/mm17dread/
+            or
+   # /opt/mm17dread/uninstall
+
+d. From source package
+
+   Build and install:
+   $ tar -xzf mm17dread-0.1.tar.gz
+            or
+   $ git clone https://github.com/pozsarzs/mm17dread.git
+   $ ./configure
+   $ make
+   # make install
+
+   Remove:
+   # make uninstall
+
+3. Windows
+~~~~~~~~~~
+a. From binary (exe) package
+
+   Run installer file and follow intructions.
+
+b. From binary (msi) package
+
+   > msiexec.exe /i mm17dread-0.1-win32.msi (or double-click to open package)
+
+c. From binary (zip) package
+
+   > unzip mm17dread-0.1-win32.zip          (or use unpacking application)
+
+d. From source package
+
+   Build and install:
+   > tar -xzf mm17dread-0.1.tar.gz          (or use unpacking application)
+   > build.bat
+   > build.bat install
+
+   Remove:
+   > build.bat uninstall
+
+--------------------------------------------------------------------------------
+ MM17DRead * Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>

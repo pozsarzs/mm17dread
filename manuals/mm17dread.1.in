@@ -1,0 +1,37 @@
+.TH "mm17dread" "1" "@version@" "Pozsár Zsolt" "Status reader program for MM17D device"
+.SH "NAME"
+.LP 
+MM17DRead \- Status reader program for MM17D device
+.SH "SYNTAX"
+.LP
+\fBmm17dread\fP [-h | --help | -v | --version]
+.br 
+.SH "OPTIONS"
+.TP
+.B \-h \-\-help
+Write useable parameters.
+.TP
+.B \-v \-\-version
+Write version and build information.
+.br
+.SH "DESCRIPTION"
+.LP 
+You can check status of MM17D growing house controllers with this
+software via network.
+.br
+This program is free software: you can redistribute it and/or modify it
+under the terms of the European Union Public License 1.2 version.
+.br
+.SH "FILES"
+.TP
+\fI~/.config/mm17dread/mm17dread.ini\fR
+configuration file
+.br
+.SH "EXIT STATUS"
+.TP
+.B 0
+normal exit
+.SH "HOMEPAGE"
+\fIhttp://www.pozsarzs.hu\fR
+.SH "AUTHOR"
+Pozsár Zsolt \fIpozsarzs@gmail.com\fR

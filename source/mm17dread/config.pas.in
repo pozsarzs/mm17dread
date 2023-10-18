@@ -1,0 +1,39 @@
+{ +--------------------------------------------------------------------------+ }
+{ | MM17DRead v0.1 * Status reader program for MM17D device                  | }
+{ | Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>                     | }
+{ | config.pas.in                                                            | }
+{ | Setting for source code                                                  | }
+{ +--------------------------------------------------------------------------+ }
+
+//   This program is free software: you can redistribute it and/or modify it
+// under the terms of the European Union Public License 1.2 version.
+//
+//   This program is distributed in the hope that it will be useful, but WITHOUT
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+// FOR A PARTICULAR PURPOSE.
+
+const
+  APPNAME='MM17DRead';
+  VERSION='0.1';
+  // install path
+  INSTPATH='@prefix@/';
+  {$IFDEF UseFHS}
+    MYI18PATH='@prefix@/share/locale/';
+  {$ELSE}
+    {$IFDEF UNIX}
+      MYI18PATH='/languages/';
+    {$ENDIF}
+    {$IFDEF WIN32}
+      MYI18PATH='\languages\';
+    {$ENDIF}
+  {$ENDIF}
+  // user's folders
+  {$IFDEF UNIX}
+    DIR_CONFIG='/.config/mm17dread/';
+    BROWSER='xdg-open';
+  {$ENDIF}
+  {$IFDEF WIN32}
+    BROWSER='rundll32.exe url.dll,FileProtocolHandler';
+    DIR_CONFIG='\AppData\Local\mm7dread\';
+  {$ENDIF}
+

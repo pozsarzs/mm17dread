@@ -1,0 +1,36 @@
+#!/bin/bash
+# +----------------------------------------------------------------------------+
+# | MM17DRead v0.1 * Status reader program for MM17D device                    |
+# | Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>                       |
+# | remove_links                                                               |
+# | Symbolic link remover script                                               |
+# +----------------------------------------------------------------------------+
+
+# constans
+SWN="MM17DRead"
+SWV=`cat documents/VERSION`
+CR=`cat documents/copyright`
+INSTDIR=/opt/mm17dread
+LINKDIR=/usr/local
+BINFILE=mm17dread
+
+# link remover
+clear
+echo "--------------------------------------------------------------------------------"
+echo "$SWN $SWV symbolic link remover script"
+echo "$CR"
+echo "--------------------------------------------------------------------------------"
+if [ `whoami` != 'root' ]
+then echo 'ERROR: You are not root!'; exit
+fi
+sleep 1
+echo "Removing sysbolic links..."
+rm --force $LINKDIR/bin/$BINFILE 2> /dev/null
+echo "  $LINKDIR/bin/$BINFILE"
+rm --force $LINKDIR/share/applications/$BINFILE.desktop 2> /dev/null
+echo "  $LINKDIR/share/applications/$BINFILE.desktop"
+rm --force $LINKDIR/share/pixmaps/$BINFILE.xpm 2> /dev/null
+echo "  $LINKDIR/share/pixmaps/$BINFILE.xpm"
+rm --force $LINKDIR/share/man/man1/$BINFILE.1 2> /dev/null
+echo "  $LINKDIR/share/man/man1/$BINFILE.1"
+echo "Done."

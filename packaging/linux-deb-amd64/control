@@ -1,0 +1,13 @@
+Package: mm17dread
+Version: 0.1
+Section: misc
+Priority: optional
+Architecture: amd64
+Installed-Size: 5.8 MB
+Maintainer: Pozsar Zsolt <pozsarzs@gmail.com>
+Depends: libc6, libglib2.0-0, libgtk2.0-0
+Description: Status reader program for MM17D device
+  You can check status of MM17D growing house
+  controllers with this software via network.
+  Homepage: http://www.pozsarzs.hu/
+  

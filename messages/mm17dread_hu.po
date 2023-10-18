@@ -1,0 +1,170 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"Last-Translator: Pozsár Zsolt <pozsarzs@gmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: hu\n"
+
+#: frmmain.message01
+msgid "Cannot read configuration file!"
+msgstr "A beállításfájl nem olvasható!"
+
+#: frmmain.message02
+msgid "Cannot write configuration file!"
+msgstr "A beállításfájl nem írható!"
+
+#: frmmain.message03
+msgid "Cannot read data from this URL!"
+msgstr "Nem tudok adatokat beolvasni erről az URL-ről!"
+
+#: frmmain.message04
+msgid "Not compatible controller!"
+msgstr "Nem kompatibilis vezérlő!"
+
+#: frmmain.message05
+msgid "name"
+msgstr "név"
+
+#: frmmain.message06
+msgid "value"
+msgstr "érték"
+
+#: frmmain.message07
+msgctxt "frmmain.message07"
+msgid "MAC address:"
+msgstr "MAC cím:"
+
+#: frmmain.message08
+msgctxt "frmmain.message08"
+msgid "IP address:"
+msgstr "IP cím:"
+
+#: frmmain.message09
+msgid "Modbus/RTU UID:"
+msgstr ""
+
+#: frmmain.message10
+msgctxt "frmmain.message10"
+msgid "serial port:"
+msgstr "soros port:"
+
+#: frmmain.message11
+msgctxt "frmmain.message11"
+msgid "sw. version:"
+msgstr "sw. változat:"
+
+#: frmmain.message12
+msgid "RHint:"
+msgstr ""
+
+#: frmmain.message13
+msgid "Tint:"
+msgstr ""
+
+#: frmmain.message14
+msgid "Text:"
+msgstr ""
+
+#: frmmain.message15
+msgid "Device sw.:"
+msgstr "Eszköz sw.:\\"
+
+#: frmmain.message16
+msgid "Cannot run default webbrowser!"
+msgstr "Nem tudom futtatni az alapértelmezés szerinti böngészőt!"
+
+#: tform1.button7.caption
+msgid "&Refresh displays"
+msgstr "Kijelzők f&rissítése"
+
+#: tform1.caption
+msgid "Form1"
+msgstr ""
+
+#: tform1.checkbox1.caption
+msgid "auto"
+msgstr "auto"
+
+#: tform1.checkbox1.hint
+msgid "Automatic device read"
+msgstr "Automatikus eszköz olvasás"
+
+#: tform1.combobox1.hint
+msgid "URL"
+msgstr ""
+
+#: tform1.label1.caption
+msgid "Internal relative humidity"
+msgstr "Belső relatív páratartalom"
+
+#: tform1.label17.caption
+msgctxt "tform1.label17.caption"
+msgid "External temperature"
+msgstr "Külső hőmérséklet"
+
+#: tform1.label18.caption
+msgctxt "tform1.label18.caption"
+msgid "0 °C"
+msgstr ""
+
+#: tform1.label2.caption
+msgctxt "tform1.label2.caption"
+msgid "Internal temperature"
+msgstr "Belső hőmérséklet"
+
+#: tform1.label3.caption
+msgctxt "tform1.label3.caption"
+msgid "0 %"
+msgstr ""
+
+#: tform1.label4.caption
+msgctxt "tform1.label4.caption"
+msgid "0 °C"
+msgstr ""
+
+#: tform1.label6.caption
+msgid "Label6"
+msgstr ""
+
+#: tform1.label7.caption
+msgid "Status reader program for MM17D device"
+msgstr "Állapotolvasó program MM17D eszközhöz"
+
+#: tform1.label8.caption
+msgid "(C)2023 Pozsár Zsolt"
+msgstr ""
+
+#: tform1.label9.caption
+msgid "http://www.pozsarzs.hu"
+msgstr ""
+
+#: tform1.speedbutton2.hint
+msgid "Add URL to list"
+msgstr "URL hozzáadása a listához"
+
+#: tform1.speedbutton3.hint
+msgid "Remove URL from list"
+msgstr "URL eltávolítása a listából"
+
+#: tform1.tabsheet1.caption
+msgid "Measured values"
+msgstr "Mért értékek"
+
+#: tform1.tabsheet2.caption
+msgid "Summary"
+msgstr "Összegzés"
+
+#: tform1.tabsheet3.caption
+msgid "System log"
+msgstr "Rendszernapló"
+
+#: tform1.tabsheet4.caption
+msgid "About"
+msgstr "Névjegy"

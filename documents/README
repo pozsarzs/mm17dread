@@ -1,0 +1,49 @@
+MM17DRead - Status reader program for MM17D device
+---------------------------------------------------
+
+1. About software
+~~~~~~~~~~~~~~~~~
+  You can check status of MM17D growing house controllers with this
+software via network.
+
+2. How to get installer package for my OS?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+a. Visit homepage (see later) to download installer packages:
+
+  architecture  operation system        filename
+  ---------------------------------------------------------------
+  (all)         (source code)           mm17dread-0.1.tar.gz
+  i386          FreeBSD                 mm17dread-0.1.txz
+  i386          Debian GNU/Linux        mm17dread_0.1-1_i386.deb
+  amd64         Linux                   mm17dread-0.1-amd64.bin
+  amd64         Linux                   mm17dread-0.1-amd64.tar.gz
+  i586          Linux                   mm17dread-0.1-i586.bin
+  i586          Linux                   mm17dread-0.1-i586.tar.gz
+  i586          Windows 32 bit          mm17dread-0.1-win32.exe
+  i586          Windows 32 bit          mm17dread-0.1-win32.msi
+  i586          Windows 32 bit          mm17dread-0.1-win32.zip
+
+b. Download from Github
+
+  $ git clone https://github.com/pozsarzs/mm17dread.git
+
+c. Download from Debian repository
+
+  set reporitory:
+  # echo "deb http://www.pozsarzs.hu/deb/ ./" >> /etc/apt/sources.list
+  # wget -q -O - http://www.pozsarzs.hu/deb/KEY.gpg | apt-key add -
+  # apt-get update
+
+  install
+  # apt-get install mm17dread
+
+3. Contact
+~~~~~~~~~~
+   Homepage:             <http://www.pozsarzs.hu>
+   Author:               Pozsar Zsolt
+   E-mail:               <pozsarzs@gmail.com>
+   Phone:                +36 56/470-272
+   Mobile:               +36 30/249-5030
+
+--------------------------------------------------------------------------------
+ MM17DRead * Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>
