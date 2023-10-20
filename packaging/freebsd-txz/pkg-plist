@@ -1,5 +1,11 @@
 bin/mm17dread
+bin/mm17dread-http
+bin/mm17dread-modbus-rtu
+bin/mm17dread-modbus-tcp
 man/man1/mm17dread.1
+man/man1/mm17dread-http.1
+man/man1/mm17dread-modbus-rtu.1
+man/man1/mm17dread-modbus-tcp.1
 share/applications/mm17dread.desktop
 share/doc/mm17dread/AUTHORS
 share/doc/mm17dread/changelog

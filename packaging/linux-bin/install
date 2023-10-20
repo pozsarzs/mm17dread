@@ -15,17 +15,16 @@ LINKDIR=/usr/local
 SUBDIRS="documents \
          languages \
          languages/hu \
-         manuals"
+         manuals \
+         ."
 SYSDIRS="$LINKDIR/bin \
          $LINKDIR/share/applications \
          $LINKDIR/share/man/man1 \
          $LINKDIR/share/pixmaps"
-BINFILE=mm17dread
-CPFILES="$BINFILE \
-         $BINFILE.desktop \
-         $BINFILE.xpm \
-         README \
-         uninstall"
+BINFILES="mm17dread \
+          mm17dread-http \
+          mm17dread-modbus-rtu \
+          mm17dread-modbus-tcp"
 README=$INSTDIR/README
 
 # installer
@@ -48,36 +47,40 @@ sleep 3
 echo "Installing..."
 echo "- creating directories:"
 mkdir --parents $INSTDIR 2> /dev/null
-for D in $SUBDIRS
+for d in $SUBDIRS
 do
-  mkdir --parents $INSTDIR/$D 2> /dev/null
-  echo "  $INSTDIR/$D"
+  mkdir --parents $INSTDIR/$d 2> /dev/null
+  echo "  $INSTDIR/$d"
 done
-for D in $SYSDIRS
+for d in $SYSDIRS
 do
-  mkdir --parents $D 2> /dev/null
-  echo "  $D"
+  mkdir --parents $d 2> /dev/null
+  echo "  $d"
 done
 echo "- copying files:"
-for D in $SUBDIRS
+for d in $SUBDIRS
 do
-  cp $D/* $INSTDIR/$D 2> /dev/null
-  echo "  "$D'/* --> '$INSTDIR/$D/
+  cp $d/* $INSTDIR/$d 2> /dev/null
+  echo "  "$d'/* --> '$INSTDIR/$d/
 done
-for F in $CPFILES
+echo "Creating symbolic links..."
+for f in $BINFILES
 do
-  cp $F $INSTDIR/ 2> /dev/null
-  echo "  "$F' --> '$INSTDIR/
+  ln --symbolic $INSTDIR/$f $LINKDIR/bin/$f 2> /dev/null
+  echo "  "$INSTDIR/$f' --> '$LINKDIR/bin/$f
+  if [ -f $INSTDIR/$f.desktop ];
+  then
+    ln --symbolic $INSTDIR/$f.desktop $LINKDIR/share/applications/$f.desktop 2> /dev/null
+    echo "  "$INSTDIR/$f.desktop' --> '$LINKDIR/share/applications/$f.desktop
+  fi
+  if [ -f $INSTDIR/$f.xpm ];
+  then
+    ln --symbolic $INSTDIR/$f.xpm $LINKDIR/share/pixmaps/$f.xpm 2> /dev/null
+    echo "  "$INSTDIR/$f.xpm' --> '$LINKDIR/share/pixmaps/$f.xpm
+  fi
+  ln --symbolic $INSTDIR/manuals/"$f"_en.1 $LINKDIR/share/man/man1/$f.1 2> /dev/null
+  echo "  "$INSTDIR/manuals/"$f"_en.1' --> '$LINKDIR/share/man/man1/$f.1
 done
-echo "- creating symbolic links:"
-ln -s $INSTDIR/$BINFILE $LINKDIR/bin/$BINFILE 2> /dev/null
-echo "  "$INSTDIR/$BINFILE' --> '$LINKDIR/bin/$BINFILE
-ln -s $INSTDIR/$BINFILE.desktop $LINKDIR/share/applications/$BINFILE.desktop 2> /dev/null
-echo "  "$INSTDIR/$BINFILE.desktop' --> '$LINKDIR/share/applications/$BINFILE.desktop
-ln -s $INSTDIR/$BINFILE.xpm $LINKDIR/share/pixmaps/$BINFILE.xpm 2> /dev/null
-echo "  "$INSTDIR/$BINFILE.xpm' --> '$LINKDIR/share/pixmaps/$BINFILE.xpm
-ln -s $INSTDIR/manuals/"$BINFILE"_en.1 $LINKDIR/share/man/man1/$BINFILE.1 2> /dev/null
-echo "  "$INSTDIR/manuals/"$BINFILE"_en.1' --> '$LINKDIR/share/man/man1/$BINFILE.1
 echo "Done."
 echo ""
 echo "Thank you for installing $SWN,"

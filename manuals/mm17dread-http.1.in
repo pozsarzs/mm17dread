@@ -1,0 +1,59 @@
+.TH "mm17dread-http" "1" "@version@" "Pozsár Zsolt" "Status reader program for MM17D device"
+.SH "NAME"
+.LP 
+MM17DRead \- Status reader program for MM17D device
+.SH "SYNTAX"
+.LP
+\fBmm17dread-http\fP IP_address csv | json | txt | xml
+.br
+\fBmm17dread-http\fP [-h | --help | -v | --version]
+.br 
+.SH "OPTIONS"
+.TP
+.B \-h \-\-help
+Write useable parameters.
+.TP
+.B \-v \-\-version
+Write version.
+.br
+.SH "DESCRIPTION"
+.LP 
+Measured data only can be queried with this command line script in
+different format (CSV, JSON, TXT and XML) with HTTP. 
+.br
+The 'wget' program required for this script to work can be found
+in all Linux distributions, install it with the package manager.
+.br
+This program is free software: you can redistribute it and/or modify it
+under the terms of the European Union Public License 1.2 version.
+.br
+.SH "EXIT STATUS"
+.TP
+.B 0
+normal exit
+.TP
+.B 1
+not enough parameter
+.TP
+.B 2
+there is not 'wget' program
+.TP
+.B 3
+specified IP address is not valid
+.TP
+.B 4
+specified format value is not valid
+.TP
+.B 5
+data retrieving error
+.SH "HOMEPAGE"
+\fIhttp://www.pozsarzs.hu\fR
+.SH "SEE ALSO"
+.PD 0
+.LP
+\fBmm17dread\fP(1)
+\fBmm17dread-modbus-rtu\fP(1)
+\fBmm17dread-modbus-tcp\fP(1)
+and \fI/usr/share/doc/mm17dread/\fP or equivalent on your system.
+.SH "AUTHOR"
+Pozsár Zsolt \fIpozsarzs@gmail.com\fR

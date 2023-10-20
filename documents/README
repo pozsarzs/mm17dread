@@ -6,6 +6,16 @@ MM17DRead - Status reader program for MM17D device
   You can check status of MM17D growing house controllers with this
 software via network.
 
+The package includes a GUI application and three command-line scripts.
+Everything can be queried with the GUI program. With the scripts only
+the measured data in different format (CSV, JSON, TXT and XML) and
+protocol (HTTP, Modbus/TCP and Modbus/RTU). 
+
+The 'wget' program required for the 'mm17dread-http' script to work can
+be found in all Linux distributions, install it with the package manager.
+The 'modpoll' program required for 'mm17dread-modbus-*' scripts to work
+can be downloaded from https://www.modbusdriver.com/modpoll.html.
+
 2. How to get installer package for my OS?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 a. Visit homepage (see later) to download installer packages:
@@ -13,6 +23,7 @@ a. Visit homepage (see later) to download installer packages:
   architecture  operation system        filename
   ---------------------------------------------------------------
   (all)         (source code)           mm17dread-0.1.tar.gz
+  (all)         FreeBSD port            mm17dread-0.1-FreeBSD-Port.shar
   i386          FreeBSD                 mm17dread-0.1.txz
   i386          Debian GNU/Linux        mm17dread_0.1-1_i386.deb
   amd64         Linux                   mm17dread-0.1-amd64.bin
@@ -47,9 +58,3 @@ c. Download from Debian repository
 
 --------------------------------------------------------------------------------
  MM17DRead * Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>
-
-
-
-https://www.modbusdriver.com/downloads/modpoll.zip
-https://www.modbusdriver.com/downloads/modpoll.tgz
-

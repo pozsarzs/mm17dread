@@ -6,7 +6,7 @@
 # | Symbolic link creator script                                               |
 # +----------------------------------------------------------------------------+
 
-# constans
+# constants
 SWN="MM17DRead"
 SWV=`cat documents/VERSION`
 CR=`cat documents/copyright`
@@ -15,7 +15,10 @@ SYSDIRS="$LINKDIR/bin \
          $LINKDIR/share/applications \
          $LINKDIR/share/man/man1 \
          $LINKDIR/share/pixmaps"
-BINFILE=mm17dread
+BINFILES="mm17dread \
+          mm17dread-http \
+          mm17dread-modbus-rtu \
+          mm17dread-modbus-tcp"
 README=./README
 
 # installer
@@ -37,18 +40,27 @@ echo "--------------------------------------------------------------------------
 sleep 3
 echo "Creating symbolic links..."
 mkdir --parents $INSTDIR 2> /dev/null
-for D in $SYSDIRS
+for d in $SYSDIRS
 do
-  mkdir --parents $D 2> /dev/null
+  mkdir --parents $d 2> /dev/null
 done
-ln -s `pwd`/$BINFILE $LINKDIR/bin/$BINFILE 2> /dev/null
-echo "  "`pwd`/$BINFILE' --> '$LINKDIR/bin/$BINFILE
-ln -s `pwd`/$BINFILE.desktop $LINKDIR/share/applications/$BINFILE.desktop 2> /dev/null
-echo "  "`pwd`/$BINFILE.desktop' --> '$LINKDIR/share/applications/$BINFILE.desktop
-ln -s `pwd`/$BINFILE.xpm $LINKDIR/share/pixmaps/$BINFILE.xpm 2> /dev/null
-echo "  "`pwd`/$BINFILE.xpm' --> '$LINKDIR/share/pixmaps/$BINFILE.xpm
-ln -s `pwd`/manuals/"$BINFILE"_en.1 $LINKDIR/share/man/man1/$BINFILE.1 2> /dev/null
-echo "  "`pwd`/manuals/"$BINFILE"_en.1' --> '$LINKDIR/share/man/man1/$BINFILE.1
+for f in $BINFILES
+do
+  ln --symbolic `pwd`/$f $LINKDIR/bin/$f 2> /dev/null
+  echo "  "`pwd`/$f' --> '$LINKDIR/bin/$f
+  if [ -f `pwd`/$f.desktop ];
+  then
+    ln --symbolic `pwd`/$f.desktop $LINKDIR/share/applications/$f.desktop 2> /dev/null
+    echo "  "`pwd`/$f.desktop' --> '$LINKDIR/share/applications/$f.desktop
+  fi
+  if [ -f `pwd`/$f.xpm ];
+  then
+    ln --symbolic `pwd`/$f.xpm $LINKDIR/share/pixmaps/$f.xpm 2> /dev/null
+    echo "  "`pwd`/$f.xpm' --> '$LINKDIR/share/pixmaps/$f.xpm
+  fi
+  ln --symbolic `pwd`/manuals/"$f"_en.1 $LINKDIR/share/man/man1/$f.1 2> /dev/null
+  echo "  "`pwd`/manuals/"$f"_en.1' --> '$LINKDIR/share/man/man1/$f.1
+done
 echo "Done."
 echo ""
 echo "Thank you for installing $SWN,"
