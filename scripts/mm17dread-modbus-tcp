@@ -2,8 +2,8 @@
 # +----------------------------------------------------------------------------+
 # | MM17DRead v0.1 * Status reader program for MM17D device                    |
 # | Copyright (C) 2023 Pozsár Zsolt <pozsarzs@gmail.com>                       |
-# | mm17dread-http                                                             |
-# | Read all data from MM17D device with HTTP                                  |
+# | mm17dread-modbus-tcp                                                       |
+# | Read all data from MM17D device with Modbus/TCP protocol                   |
 # +----------------------------------------------------------------------------+
 
 #   This program is free software: you can redistribute it and/or modify it
@@ -18,20 +18,21 @@
 #   1: not enough parameter
 #   2: there is not ... program
 #   3: specified IP address is not valid
-#   4: specified format value is not valid
+#   4: 
 #   5: data retrieving error
 
 # constants
-PRGNAME="wget"
-PRGARGS="--quiet --output-document -"
+PRGNAME="modpoll"
+PRGARGS="-a 1 -m tcp -t 4 -r 1 -c 3 -1"
+
 # messages
-MSG=("MM17DRead-HTTP data reader script v0.1\n" \
-     "Usage:\n\t$0 IP_address csv|json|txt|xml\n\t$0 -h\n\t$0 --help\n\t$0 -v\n\t$0 --version\n" \
+MSG=("MM17DRead-Modbus/TCP data reader script v0.1\n" \
+     "Usage:\n\t$0 IP_address\n\t$0 -h\n\t$0 --help\n\t$0 -v\n\t$0 --version\n" \
      "ERROR #2: There is not '"$PRGNAME"' program!" \
      "ERROR #3: Bad IP address!" \
-     "ERROR #4: Bad format!" \
+     "ERROR #4: " \
      "ERROR #5: Data retrieving error!" \	
-     "The '"$PRGNAME"' program required for the script to work\ncan be found in all Linux distributions,\ninstall it with the package manager.")
+     "The '"$PRGNAME"' program required for the script to work\ncan be downloaded from https://www.modbusdriver.com/modpoll.html.")
 
 function message()
 {
@@ -70,25 +71,9 @@ function checkipaddress()
   return $stat
 }
 
-function checkformat()
-{
-  local FORMAT="csv json txt xml"
-  local i=1
-
-  for x in $FORMAT
-  do
-    if [ $1 = $x ];
-    then
-      i=0
-      break
-    fi
-  done
-  return $i
-}
-
 function readdevice()
 {
-  if ! $PRGNAME $PRGARGS $1/get/$2;
+  if ! $PRGNAME $PRGARGS $1;
   then
     return 1
   else
@@ -103,35 +88,24 @@ if [ $# -eq 0 ]
 then
   message 1
   exit 1
-fi
-
-if [ $# -lt 2 ];
-then
+else
   case $1 in
     "-h") message 0; message 1; message 7;  exit 0;;
     "-v") message 0; exit 0;;
     "--help") message 0; message 1; message 7;  exit 0;;
     "--version") message 0; exit 0;;
-    *) message 1; exit 1;;
   esac	
-else 
   if checkprog $PRG;
   then
     if checkipaddress $1;
     then
-      if checkformat $2;
+      if readdevice $1 $2
       then
-        if readdevice $1 $2
-        then
-          echo ""
-          exit 0
-        else
-          message 5
-          exit 5
-        fi
+        echo ""
+        exit 0
       else
-        message 4
-        exit 4
+        message 5
+        exit 5
       fi
     else
       message 3
