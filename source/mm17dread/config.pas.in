@@ -34,6 +34,6 @@ const
   {$ENDIF}
   {$IFDEF WIN32}
     BROWSER='rundll32.exe url.dll,FileProtocolHandler';
-    DIR_CONFIG='\AppData\Local\mm7dread\';
+    DIR_CONFIG='\AppData\Local\mm17dread\';
   {$ENDIF}
 
