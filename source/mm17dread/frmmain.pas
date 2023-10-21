@@ -24,6 +24,7 @@ uses
 type
   { TForm1 }
   TForm1 = class(TForm)
+    Bevel1: TBevel;
     Bevel16: TBevel;
     Bevel2: TBevel;
     Bevel3: TBevel;
@@ -47,6 +48,9 @@ type
     Shape1: TShape;
     Shape15: TShape;
     Shape2: TShape;
+    Shape3: TShape;
+    Shape4: TShape;
+    Shape5: TShape;
     SpeedButton2: TSpeedButton;
     SpeedButton3: TSpeedButton;
     StatusBar1: TStatusBar;
@@ -98,6 +102,9 @@ resourcestring
   MESSAGE14 = 'Text:';
   MESSAGE15 = 'Device sw.:';
   MESSAGE16 = 'Cannot run default webbrowser!';
+  MESSAGE17 = 'green LED';
+  MESSAGE18 = 'yellow LED';
+  MESSAGE19 = 'red LED';
 
 implementation
 
@@ -175,7 +182,9 @@ var
 const
   s1a: string = '<br>';
   s1b: string = '<td>';
-  s1c: string = '</td>';
+  s1c: string = '<td align="right">';
+  s1d: string = '<td align="center">';
+  s1e: string = '</td>';
   s2:  string = 'my MAC address:';
   s3:  string = 'my IP address:';
   s4:  string = 'my Modbus UID:';
@@ -184,6 +193,9 @@ const
   s7:  string = '<td>Internal humidity</td>';
   s8:  string = '<td>Internal temperature</td>';
   s9:  string = '<td>External temperature</td>';
+  s10:  string = '<td>Status of the green LED</td>';
+  s11:  string = '<td>Status of the yellow LED</td>';
+  s12:  string = '<td>Status of the red LED</td>';
 
 begin
   // clear pages
@@ -281,8 +293,8 @@ begin
     end;
     if j <> 0 then
     begin
-      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1b, '', [rfReplaceAll]);
       Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1c, '', [rfReplaceAll]);
+      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1e, '', [rfReplaceAll]);
       Value.Strings[i + 1] := rmchr3(Value.Strings[i + 1]);
       ValueListEditor1.Cells[1, 6] := Value.Strings[i+1];
       Label3.Caption := ValueListEditor1.Cells[1, 6];
@@ -296,8 +308,8 @@ begin
     if j <> 0 then
     begin
       Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], '&deg;', '°', [rfReplaceAll]);
-      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1b, '', [rfReplaceAll]);
       Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1c, '', [rfReplaceAll]);
+      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1e, '', [rfReplaceAll]);
       Value.Strings[i + 1] := rmchr3(Value.Strings[i + 1]);
       ValueListEditor1.Cells[1, 7] := Value.Strings[i + 1];
       Label4.Caption := ValueListEditor1.Cells[1, 7];
@@ -311,11 +323,65 @@ begin
     if j <> 0 then
     begin
       Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], '&deg;', '°', [rfReplaceAll]);
-      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1b, '', [rfReplaceAll]);
       Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1c, '', [rfReplaceAll]);
+      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1e, '', [rfReplaceAll]);
       Value.Strings[i + 1] := rmchr3(Value.Strings[i + 1]);
       ValueListEditor1.Cells[1, 8] := Value.Strings[i + 1];
       Label18.Caption := ValueListEditor1.Cells[1, 8];
+    end;
+    // get status of the green LED
+    for i := 0 to Value.Count - 1 do
+    begin
+      j := findpart(s10, Value.Strings[i]);
+      if j <> 0 then break;
+    end;
+    if j <> 0 then
+    begin
+      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1d, '', [rfReplaceAll]);
+      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1e, '', [rfReplaceAll]);
+      Value.Strings[i + 1] := rmchr3(Value.Strings[i + 1]);
+      ValueListEditor1.Cells[1, 9] := Value.Strings[i + 1];
+      if ValueListEditor1.Cells[1, 9].ToBoolean
+      then
+        Shape3.Brush.Color:=clLime
+      else
+        Shape3.Brush.Color:=clGreen;
+    end;
+    // get status of the green LED
+    for i := 0 to Value.Count - 1 do
+    begin
+      j := findpart(s11, Value.Strings[i]);
+      if j <> 0 then break;
+    end;
+    if j <> 0 then
+    begin
+      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1d, '', [rfReplaceAll]);
+      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1e, '', [rfReplaceAll]);
+      Value.Strings[i + 1] := rmchr3(Value.Strings[i + 1]);
+      ValueListEditor1.Cells[1, 10] := Value.Strings[i + 1];
+      if ValueListEditor1.Cells[1, 10].ToBoolean
+      then
+        Shape4.Brush.Color:=clYellow
+      else
+        Shape4.Brush.Color:=clOlive;
+    end;
+    // get status of the red LED
+    for i := 0 to Value.Count - 1 do
+    begin
+      j := findpart(s12, Value.Strings[i]);
+      if j <> 0 then break;
+    end;
+    if j <> 0 then
+    begin
+      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1d, '', [rfReplaceAll]);
+      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1e, '', [rfReplaceAll]);
+      Value.Strings[i + 1] := rmchr3(Value.Strings[i + 1]);
+      ValueListEditor1.Cells[1, 11] := Value.Strings[i + 1];
+      if ValueListEditor1.Cells[1, 11].ToBoolean
+      then
+        Shape5.Brush.Color:=clRed
+      else
+        Shape5.Brush.Color:=clMaroon;
     end;
   end
   else
@@ -410,6 +476,9 @@ begin
   ValueListEditor1.Cells[0, 6] := MESSAGE12;
   ValueListEditor1.Cells[0, 7] := MESSAGE13;
   ValueListEditor1.Cells[0, 8] := MESSAGE14;
+  ValueListEditor1.Cells[0, 9] := MESSAGE17;
+  ValueListEditor1.Cells[0, 10] := MESSAGE18;
+  ValueListEditor1.Cells[0, 11] := MESSAGE19;
 end;
 
 // onClose

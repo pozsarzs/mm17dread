@@ -23,7 +23,7 @@
 
 # constants
 PRGNAME="modpoll"
-PRGARGS="-a 1 -m tcp -t 4 -r 1 -c 3 -1"
+PRGARGS="-a 1 -m tcp -r 1 -c 3 -1"
 
 # messages
 MSG=("MM17DRead-Modbus/TCP data reader script v0.1\n" \
@@ -73,15 +73,18 @@ function checkipaddress()
 
 function readdevice()
 {
-  if ! $PRGNAME $PRGARGS $1;
+  if ! $PRGNAME $PRGARGS -t 3 $1 | grep "\[";
   then
     return 1
   else
+    if ! $PRGNAME $PRGARGS -t 1 $1 | grep "\[";
+    then
+      return 1
+    fi
     return 0
   fi
   return 0
 }
-
 
 # main
 if [ $# -eq 0 ]

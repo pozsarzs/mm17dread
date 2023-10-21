@@ -432,6 +432,52 @@ object Form1: TForm1
         ShowHint = True
         TabOrder = 0
       end
+      object Bevel1: TBevel
+        AnchorSideLeft.Control = Bevel2
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = CheckBox1
+        AnchorSideTop.Side = asrBottom
+        AnchorSideRight.Control = TabSheet1
+        AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Control = Bevel16
+        AnchorSideBottom.Side = asrBottom
+        Left = 208
+        Height = 161
+        Top = 30
+        Width = 64
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        BorderSpacing.Around = 4
+      end
+      object Shape3: TShape
+        Left = 224
+        Height = 25
+        Top = 56
+        Width = 35
+        Brush.Color = clGreen
+        ParentShowHint = False
+        Pen.Width = 2
+        Shape = stCircle
+      end
+      object Shape4: TShape
+        Left = 224
+        Height = 25
+        Top = 96
+        Width = 35
+        Brush.Color = clOlive
+        ParentShowHint = False
+        Pen.Width = 2
+        Shape = stCircle
+      end
+      object Shape5: TShape
+        Left = 224
+        Height = 25
+        Top = 138
+        Width = 35
+        Brush.Color = clMaroon
+        ParentShowHint = False
+        Pen.Width = 2
+        Shape = stCircle
+      end
     end
     object TabSheet2: TTabSheet
       Caption = 'Summary'
@@ -451,11 +497,12 @@ object Form1: TForm1
         Anchors = [akTop, akLeft, akRight, akBottom]
         BorderSpacing.Around = 4
         FixedCols = 0
-        RowCount = 9
+        RowCount = 10
         TabOrder = 0
         DisplayOptions = [doColumnTitles, doAutoColResize]
         Options = [goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goRowSelect, goAlwaysShowEditor, goThumbTracking, goColSpanning, goDblClickAutoSize, goSelectionActive]
         Strings.Strings = (
+          ''
           ''
           ''
           ''
@@ -599,13 +646,13 @@ object Form1: TForm1
     WindowTop = 0
     WindowWidth = 0
     FillAttribute = 0
-    Left = 232
-    Top = 168
+    Left = 8
+    Top = 304
   end
   object Timer1: TTimer
     Enabled = False
     OnTimer = Timer1Timer
-    Left = 232
-    Top = 112
+    Left = 40
+    Top = 304
   end
 end
