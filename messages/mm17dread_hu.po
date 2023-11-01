@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
+"Last-Translator: Pozsár Zsolt <pozsarzs@gmail.com>\n"
 "Language-Team: \n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.2\n"
-"Last-Translator: Pozsár Zsolt <pozsarzs@gmail.com>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: hu\n"
 
 #: frmmain.message01
 msgid "Cannot read configuration file!"
@@ -38,45 +38,71 @@ msgstr "érték"
 
 #: frmmain.message07
 msgctxt "frmmain.message07"
-msgid "MAC address:"
-msgstr "MAC cím:"
+msgid "device"
+msgstr "eszköz"
 
 #: frmmain.message08
 msgctxt "frmmain.message08"
-msgid "IP address:"
-msgstr "IP cím:"
+msgid "sw. version"
+msgstr "sw. változat"
 
 #: frmmain.message09
-msgid "Modbus/RTU UID:"
-msgstr ""
+msgctxt "frmmain.message09"
+msgid "MAC address"
+msgstr "MAC cím"
 
 #: frmmain.message10
+#, fuzzy
+#| msgctxt "frmmain.message08"
+#| msgid "IP address:"
 msgctxt "frmmain.message10"
-msgid "serial port:"
-msgstr "soros port:"
+msgid "IP address"
+msgstr "IP cím"
 
 #: frmmain.message11
 msgctxt "frmmain.message11"
-msgid "sw. version:"
-msgstr "sw. változat:"
-
-#: frmmain.message12
-msgid "RHint:"
+msgid "Modbus/RTU UID"
 msgstr ""
 
+#: frmmain.message12
+msgctxt "frmmain.message12"
+msgid "serial port speed [baud]"
+msgstr "soros port sebesség [baud]"
+
 #: frmmain.message13
-msgid "Tint:"
+msgctxt "frmmain.message13"
+msgid "RHint [%]"
 msgstr ""
 
 #: frmmain.message14
-msgid "Text:"
+msgctxt "frmmain.message14"
+msgid "Tint [°C]"
 msgstr ""
 
 #: frmmain.message15
-msgid "Device sw.:"
-msgstr "Eszköz sw.:\\"
+msgctxt "frmmain.message15"
+msgid "Text [°C]"
+msgstr ""
 
 #: frmmain.message16
+msgctxt "frmmain.message16"
+msgid "green LED"
+msgstr ""
+
+#: frmmain.message17
+msgctxt "frmmain.message17"
+msgid "yellow LED"
+msgstr ""
+
+#: frmmain.message18
+msgctxt "frmmain.message18"
+msgid "red LED"
+msgstr ""
+
+#: frmmain.message19
+#, fuzzy
+#| msgid "Cannot run default webbrowser!"
+msgctxt "frmmain.message19"
 msgid "Cannot run default webbrowser!"
 msgstr "Nem tudom futtatni az alapértelmezés szerinti böngészőt!"
 
@@ -105,7 +131,9 @@ msgid "Internal relative humidity"
 msgstr "Belső relatív páratartalom"
 
 #: tform1.label17.caption
-msgctxt "tform1.label17.caption"
+#, fuzzy
+#| msgctxt "tform1.label17.caption"
+#| msgid "External temperature"
 msgid "External temperature"
 msgstr "Külső hőmérséklet"
 
@@ -115,19 +143,20 @@ msgid "0 °C"
 msgstr ""
 
 #: tform1.label2.caption
-msgctxt "tform1.label2.caption"
+#, fuzzy
+#| msgctxt "tform1.label2.caption"
+#| msgid "Internal temperature"
 msgid "Internal temperature"
 msgstr "Belső hőmérséklet"
 
 #: tform1.label3.caption
-msgctxt "tform1.label3.caption"
 msgid "0 %"
 msgstr ""
 
 #: tform1.label4.caption
 msgctxt "tform1.label4.caption"
 msgid "0 °C"
-msgstr ""
+msgstr "0"
 
 #: tform1.label6.caption
 msgid "Label6"
@@ -168,3 +197,6 @@ msgstr "Rendszernapló"
 #: tform1.tabsheet4.caption
 msgid "About"
 msgstr "Névjegy"
+
+#~ msgid "Device sw.:"
+#~ msgstr "Eszköz sw.:\\"

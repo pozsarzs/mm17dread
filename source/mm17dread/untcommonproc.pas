@@ -81,7 +81,7 @@ end;
 // get data from controller device via http
 function getdatafromdevice(url: string; cmd: byte): boolean;
 const
-  cmdstr: array[0..1] of string = ('summary', 'log');
+  cmdstr: array[0..1] of string = ('get/xml', 'log');
 begin
   getdatafromdevice := True;
   Value.Clear;
@@ -113,8 +113,6 @@ var
 begin
  {$IFDEF UNIX}
   s := getenvironmentvariable('LANG');
- {$ENDIF}
- {$IFDEF ANDROID}
  {$ENDIF}
  {$IFDEF WIN32}
   size := getlocaleinfo(LOCALE_USER_DEFAULT, LOCALE_SABBREVLANGNAME, nil, 0);
@@ -184,9 +182,6 @@ var
 begin
  {$IFDEF UNIX}
   userdir := getenvironmentvariable('HOME');
- {$ENDIF}
- {$IFDEF ANDROID}
-  userdir := '/data/data/hu.szerafingomba.mm7dread';
  {$ENDIF}
  {$IFDEF WIN32}
   userdir := getuserprofile;

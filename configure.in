@@ -69,7 +69,12 @@ AC_SUBST(ln)
 AC_SUBST(make)
 AC_SUBST(rm)
 
-AC_OUTPUT( Makefile.global manuals/mm17dread.1 source/mm17dread/config.pas )
+AC_OUTPUT( Makefile.global \
+           manuals/mm17dread.1 \
+           manuals/mm17dread-http.1 \
+           manuals/mm17dread-modbus-rtu.1 \
+           manuals/mm17dread-modbus-tcp.1 \
+           source/mm17dread/config.pas )
 
 echo "
 Summary

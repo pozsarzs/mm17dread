@@ -19,7 +19,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  StdCtrls, Buttons, ExtCtrls, ValEdit, StrUtils, process, untcommonproc;
+  StdCtrls, Buttons, ExtCtrls, ValEdit, XMLPropStorage, StrUtils, process,
+  untcommonproc;
 
 type
   { TForm1 }
@@ -83,7 +84,7 @@ var
 
 const
   CNTNAME: string = 'MM17D';
-  CNTVER:  string = '0.1';
+  CNTVER:  string = '0.1.0';
 
 resourcestring
   MESSAGE01 = 'Cannot read configuration file!';
@@ -92,19 +93,19 @@ resourcestring
   MESSAGE04 = 'Not compatible controller!';
   MESSAGE05 = 'name';
   MESSAGE06 = 'value';
-  MESSAGE07 = 'MAC address:';
-  MESSAGE08 = 'IP address:';
-  MESSAGE09 = 'Modbus/RTU UID:';
-  MESSAGE10 = 'serial port:';
-  MESSAGE11 = 'sw. version:';
-  MESSAGE12 = 'RHint:';
-  MESSAGE13 = 'Tint:';
-  MESSAGE14 = 'Text:';
-  MESSAGE15 = 'Device sw.:';
-  MESSAGE16 = 'Cannot run default webbrowser!';
-  MESSAGE17 = 'green LED';
-  MESSAGE18 = 'yellow LED';
-  MESSAGE19 = 'red LED';
+  MESSAGE07 = 'device';
+  MESSAGE08 = 'sw. version';
+  MESSAGE09 = 'MAC address';
+  MESSAGE10 = 'IP address';
+  MESSAGE11 = 'Modbus/RTU UID';
+  MESSAGE12 = 'serial port speed [baud]';
+  MESSAGE13 = 'RHint [%]';
+  MESSAGE14 = 'Tint [°C]';
+  MESSAGE15 = 'Text [°C]';
+  MESSAGE16 = 'green LED';
+  MESSAGE17 = 'yellow LED';
+  MESSAGE18 = 'red LED';
+  MESSAGE19 = 'Cannot run default webbrowser!';
 
 implementation
 
@@ -178,24 +179,11 @@ end;
 // refresh displays
 procedure TForm1.Button7Click(Sender: TObject);
 var
-  i,j: integer;
+  i,j, k: integer;
 const
-  s1a: string = '<br>';
-  s1b: string = '<td>';
-  s1c: string = '<td align="right">';
-  s1d: string = '<td align="center">';
-  s1e: string = '</td>';
-  s2:  string = 'my MAC address:';
-  s3:  string = 'my IP address:';
-  s4:  string = 'my Modbus UID:';
-  s5:  string = 'serial port parameters:';
-  s6:  string = 'software version:';
-  s7:  string = '<td>Internal humidity</td>';
-  s8:  string = '<td>Internal temperature</td>';
-  s9:  string = '<td>External temperature</td>';
-  s10:  string = '<td>Status of the green LED</td>';
-  s11:  string = '<td>Status of the yellow LED</td>';
-  s12:  string = '<td>Status of the red LED</td>';
+  t: array[1..12] of string =('name','version','mac_address','ip_address',
+                              'modbus_uid','com_speed','rhint','tint',
+                              'text','ledg','ledy','ledr');
 
 begin
   // clear pages
@@ -207,188 +195,83 @@ begin
   ValueListEditor1.Cells[1, 7] := Label4.Caption;
   ValueListEditor1.Cells[1, 8] := Label18.Caption;
   Memo1.Clear;
-  // get data
+  // get software information
   if getdatafromdevice(ComboBox1.Text, 0) then
   begin
-    // check software name and version
-    for i := 0 to Value.Count - 1 do
+    for k := 1 to 2 do
     begin
-      j := findpart(s6, Value.Strings[i]);
-      if j <> 0 then break;
-    end;
-    if j <> 0 then
-    begin
-      Value.Strings[i] := stringreplace(Value.Strings[i], s1a, '', [rfReplaceAll]);
-      Value.Strings[i] := stringreplace(Value.Strings[i], s6, '', [rfReplaceAll]);
-      Value.Strings[i] := rmchr1(Value.Strings[i]);
-      ValueListEditor1.Cells[1, 5] := Value.Strings[i];
-    end;
-    // check compatibility
-    if 'v'+CNTVER = ValueListEditor1.Cells[1, 5]
-      then
-        StatusBar1.Panels.Items[0].Text := MESSAGE15 + ' ' + ValueListEditor1.Cells[1, 5]
-      else
+      for i := 0 to Value.Count - 1 do
       begin
-        ShowMessage(MESSAGE04);
-        StatusBar1.Panels.Items[0].Text := '';
-        exit;
+        j := findpart(t[k], Value.Strings[i]);
+        if j <> 0 then break;
       end;
-    // get MAC address
-    for i := 0 to Value.Count - 1 do
-    begin
-      j := findpart(s2, Value.Strings[i]);
-      if j <> 0 then break;
+      if j <> 0 then
+      begin
+        Value.Strings[i] := stringreplace(Value.Strings[i], '<' + t[k] + '>', '', [rfReplaceAll]);
+        Value.Strings[i] := stringreplace(Value.Strings[i], '</' + t[k] + '>', '', [rfReplaceAll]);
+        Value.Strings[i] := rmchr1(Value.Strings[i]);
+        ValueListEditor1.Cells[1, k] := Value.Strings[i];
+      end;
     end;
-    if j <> 0 then
-    begin
-      Value.Strings[i] := stringreplace(Value.Strings[i], s1a, '', [rfReplaceAll]);
-      Value.Strings[i] := stringreplace(Value.Strings[i], s2, '', [rfReplaceAll]);
-      Value.Strings[i] := rmchr1(Value.Strings[i]);
-      ValueListEditor1.Cells[1, 1] := Value.Strings[i];
-    end;
-    // get IP address
-    for i := 0 to Value.Count - 1 do
-    begin
-      j := findpart(s3, Value.Strings[i]);
-      if j <> 0 then break;
-    end;
-    if j <> 0 then
-    begin
-      Value.Strings[i] := stringreplace(Value.Strings[i], s1a, '', [rfReplaceAll]);
-      Value.Strings[i] := stringreplace(Value.Strings[i], s3, '', [rfReplaceAll]);
-      Value.Strings[i] := rmchr1(Value.Strings[i]);
-      ValueListEditor1.Cells[1, 2] := Value.Strings[i];
-    end;
-    // get Modbus UID
-    for i := 0 to Value.Count - 1 do
-    begin
-      j := findpart(s4, Value.Strings[i]);
-      if j <> 0 then break;
-    end;
-    if j <> 0 then
-    begin
-      Value.Strings[i] := stringreplace(Value.Strings[i], s1a, '', [rfReplaceAll]);
-      Value.Strings[i] := stringreplace(Value.Strings[i], s4, '', [rfReplaceAll]);
-      Value.Strings[i] := rmchr1(Value.Strings[i]);
-      ValueListEditor1.Cells[1, 3] := Value.Strings[i];
-    end;
-    // get serial port parameters
-    for i := 0 to Value.Count - 1 do
-    begin
-      j := findpart(s5, Value.Strings[i]);
-      if j <> 0 then break;
-    end;
-    if j <> 0 then
-    begin
-      Value.Strings[i] := stringreplace(Value.Strings[i], s1a, '', [rfReplaceAll]);
-      Value.Strings[i] := stringreplace(Value.Strings[i], s5, '', [rfReplaceAll]);
-      Value.Strings[i] := rmchr3(Value.Strings[i]);
-      ValueListEditor1.Cells[1, 4] := Value.Strings[i];
-    end;
-    // get internal humidity
-    for i := 0 to Value.Count - 1 do
-    begin
-      j := findpart(s7, Value.Strings[i]);
-      if j <> 0 then break;
-    end;
-    if j <> 0 then
-    begin
-      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1c, '', [rfReplaceAll]);
-      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1e, '', [rfReplaceAll]);
-      Value.Strings[i + 1] := rmchr3(Value.Strings[i + 1]);
-      ValueListEditor1.Cells[1, 6] := Value.Strings[i+1];
-      Label3.Caption := ValueListEditor1.Cells[1, 6];
-    end;
-    // get internal temperature
-    for i := 0 to Value.Count - 1 do
-    begin
-      j := findpart(s8, Value.Strings[i]);
-      if j <> 0 then break;
-    end;
-    if j <> 0 then
-    begin
-      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], '&deg;', '°', [rfReplaceAll]);
-      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1c, '', [rfReplaceAll]);
-      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1e, '', [rfReplaceAll]);
-      Value.Strings[i + 1] := rmchr3(Value.Strings[i + 1]);
-      ValueListEditor1.Cells[1, 7] := Value.Strings[i + 1];
-      Label4.Caption := ValueListEditor1.Cells[1, 7];
-    end;
-    // get external temperature
-    for i := 0 to Value.Count - 1 do
-    begin
-      j := findpart(s9, Value.Strings[i]);
-      if j <> 0 then break;
-    end;
-    if j <> 0 then
-    begin
-      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], '&deg;', '°', [rfReplaceAll]);
-      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1c, '', [rfReplaceAll]);
-      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1e, '', [rfReplaceAll]);
-      Value.Strings[i + 1] := rmchr3(Value.Strings[i + 1]);
-      ValueListEditor1.Cells[1, 8] := Value.Strings[i + 1];
-      Label18.Caption := ValueListEditor1.Cells[1, 8];
-    end;
-    // get status of the green LED
-    for i := 0 to Value.Count - 1 do
-    begin
-      j := findpart(s10, Value.Strings[i]);
-      if j <> 0 then break;
-    end;
-    if j <> 0 then
-    begin
-      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1d, '', [rfReplaceAll]);
-      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1e, '', [rfReplaceAll]);
-      Value.Strings[i + 1] := rmchr3(Value.Strings[i + 1]);
-      ValueListEditor1.Cells[1, 9] := Value.Strings[i + 1];
-      if ValueListEditor1.Cells[1, 9].ToBoolean
-      then
-        Shape3.Brush.Color:=clLime
-      else
-        Shape3.Brush.Color:=clGreen;
-    end;
-    // get status of the green LED
-    for i := 0 to Value.Count - 1 do
-    begin
-      j := findpart(s11, Value.Strings[i]);
-      if j <> 0 then break;
-    end;
-    if j <> 0 then
-    begin
-      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1d, '', [rfReplaceAll]);
-      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1e, '', [rfReplaceAll]);
-      Value.Strings[i + 1] := rmchr3(Value.Strings[i + 1]);
-      ValueListEditor1.Cells[1, 10] := Value.Strings[i + 1];
-      if ValueListEditor1.Cells[1, 10].ToBoolean
-      then
-        Shape4.Brush.Color:=clYellow
-      else
-        Shape4.Brush.Color:=clOlive;
-    end;
-    // get status of the red LED
-    for i := 0 to Value.Count - 1 do
-    begin
-      j := findpart(s12, Value.Strings[i]);
-      if j <> 0 then break;
-    end;
-    if j <> 0 then
-    begin
-      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1d, '', [rfReplaceAll]);
-      Value.Strings[i + 1] := stringreplace(Value.Strings[i + 1], s1e, '', [rfReplaceAll]);
-      Value.Strings[i + 1] := rmchr3(Value.Strings[i + 1]);
-      ValueListEditor1.Cells[1, 11] := Value.Strings[i + 1];
-      if ValueListEditor1.Cells[1, 11].ToBoolean
-      then
-        Shape5.Brush.Color:=clRed
-      else
-        Shape5.Brush.Color:=clMaroon;
-    end;
-  end
-  else
+  end else
   begin
     ShowMessage(MESSAGE03);
     exit;
   end;
+  // check compatibility
+  if (CNTNAME = ValueListEditor1.Cells[1, 1]) and
+     (CNTVER = ValueListEditor1.Cells[1, 2])
+  then
+    StatusBar1.Panels.Items[0].Text := ' ' + ValueListEditor1.Cells[1, 1] + ' v' + ValueListEditor1.Cells[1, 2]
+  else
+  begin
+    ShowMessage(MESSAGE04);
+    StatusBar1.Panels.Items[0].Text := '';
+    exit;
+  end;
+  // get summary
+  if getdatafromdevice(ComboBox1.Text, 0) then
+  begin
+    for k := 3 to 12 do
+    begin
+      for i := 0 to Value.Count - 1 do
+      begin
+        j := findpart(t[k], Value.Strings[i]);
+        if j <> 0 then break;
+      end;
+      if j <> 0 then
+      begin
+        Value.Strings[i] := stringreplace(Value.Strings[i], '<' + t[k] + '>', '', [rfReplaceAll]);
+        Value.Strings[i] := stringreplace(Value.Strings[i], '</' + t[k] + '>', '', [rfReplaceAll]);
+        Value.Strings[i] := rmchr1(Value.Strings[i]);
+        ValueListEditor1.Cells[1, k] := Value.Strings[i];
+      end;
+    end;
+  end else
+  begin
+    ShowMessage(MESSAGE03);
+    exit;
+  end;
+  // display
+  Label3.Caption := ValueListEditor1.Cells[1, 7] + ' %';
+  Label4.Caption := ValueListEditor1.Cells[1, 8] + ' °C';
+  Label18.Caption := ValueListEditor1.Cells[1, 9] + ' °C';
+  // LEDs
+  if ValueListEditor1.Cells[1, 10].ToBoolean
+  then
+    Shape3.Brush.Color:=clLime
+  else
+    Shape3.Brush.Color:=clGreen;
+  if ValueListEditor1.Cells[1, 11].ToBoolean
+  then
+    Shape4.Brush.Color:=clYellow
+  else
+    Shape4.Brush.Color:=clOlive;
+  if ValueListEditor1.Cells[1, 12].ToBoolean
+  then
+    Shape5.Brush.Color:=clRed
+  else
+    Shape5.Brush.Color:=clMaroon;
   ValueListEditor1.Cells[0, 0] := MESSAGE05;
   ValueListEditor1.Cells[1, 0] := MESSAGE06;
   // get log
@@ -408,8 +291,7 @@ begin
         Memo1.Lines.Insert(0, Value.Strings[i]);
       end;
     Memo1.SelStart := 0;
-  end
-  else
+  end else
   begin
     ShowMessage(MESSAGE03);
     exit;
@@ -426,7 +308,7 @@ begin
     try
       Form1.Process1.Execute;
     except
-      ShowMessage(MESSAGE16);
+      ShowMessage(MESSAGE19);
     end;
   end;
 end;
@@ -476,9 +358,10 @@ begin
   ValueListEditor1.Cells[0, 6] := MESSAGE12;
   ValueListEditor1.Cells[0, 7] := MESSAGE13;
   ValueListEditor1.Cells[0, 8] := MESSAGE14;
-  ValueListEditor1.Cells[0, 9] := MESSAGE17;
-  ValueListEditor1.Cells[0, 10] := MESSAGE18;
-  ValueListEditor1.Cells[0, 11] := MESSAGE19;
+  ValueListEditor1.Cells[0, 9] := MESSAGE15;
+  ValueListEditor1.Cells[0, 10] := MESSAGE16;
+  ValueListEditor1.Cells[0, 11] := MESSAGE17;
+  ValueListEditor1.Cells[0, 12] := MESSAGE18;
 end;
 
 // onClose

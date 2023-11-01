@@ -23,7 +23,7 @@
 
 # constants
 PRGNAME="modpoll"
-PRGARGS="-a 1 -m rtu -r 1 -c 3 -b9600 -p none -d 8 -s 1 -1"
+PRGARGS="-a 1 -m rtu -r 1 -b9600 -p none -d 8 -s 1 -1 -o 2"
 
 # messages
 MSG=("MM17DRead-Modbus/RTU data reader script v0.1\n" \
@@ -51,13 +51,19 @@ function checkprog()
 
 function readdevice()
 {
-  if ! $PRGNAME $PRGARGS -t 3 $1 | grep "\[";
+  if ! $PRGNAME $PRGARGS -c 3 -t 3 $1 | grep "\[";
   then
     return 1
   else
-    if ! $PRGNAME $PRGARGS -t 1 $1 | grep "\[";
+    if ! $PRGNAME $PRGARGS -c 3 -t 1 $1 | grep "\[";
     then
       return 1
+    else
+      if ! $PRGNAME $PRGARGS -c 28 -t 4 $1 | grep "\[";
+      then
+        return 1
+      fi
+      return 0
     fi
     return 0
   fi

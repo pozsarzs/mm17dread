@@ -3,6 +3,7 @@ object Form1: TForm1
   Height = 338
   Top = 183
   Width = 290
+  ActiveControl = ComboBox1
   Caption = 'Form1'
   ClientHeight = 338
   ClientWidth = 290
@@ -493,13 +494,13 @@ object Form1: TForm1
         Left = 4
         Height = 195
         Top = 4
-        Width = 268
+        Width = 361
         Anchors = [akTop, akLeft, akRight, akBottom]
         BorderSpacing.Around = 4
+        DefaultColWidth = 0
         FixedCols = 0
-        RowCount = 10
+        RowCount = 12
         TabOrder = 0
-        DisplayOptions = [doColumnTitles, doAutoColResize]
         Options = [goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goRowSelect, goAlwaysShowEditor, goThumbTracking, goColSpanning, goDblClickAutoSize, goSelectionActive]
         Strings.Strings = (
           ''
@@ -511,10 +512,12 @@ object Form1: TForm1
           ''
           ''
           ''
+          ''
+          ''
         )
         ColWidths = (
-          124
-          124
+          170
+          171
         )
       end
     end

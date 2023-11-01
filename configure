@@ -2210,7 +2210,7 @@ test "$stagedir" != "" && mandir="$prefix/man"
 
 
 
-ac_config_files="$ac_config_files Makefile.global manuals/mm17dread.1 source/mm17dread/config.pas"
+ac_config_files="$ac_config_files Makefile.global manuals/mm17dread.1 manuals/mm17dread-http.1 manuals/mm17dread-modbus-rtu.1 manuals/mm17dread-modbus-tcp.1 source/mm17dread/config.pas"
 
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
@@ -2919,6 +2919,9 @@ do
   case $ac_config_target in
     "Makefile.global") CONFIG_FILES="$CONFIG_FILES Makefile.global" ;;
     "manuals/mm17dread.1") CONFIG_FILES="$CONFIG_FILES manuals/mm17dread.1" ;;
+    "manuals/mm17dread-http.1") CONFIG_FILES="$CONFIG_FILES manuals/mm17dread-http.1" ;;
+    "manuals/mm17dread-modbus-rtu.1") CONFIG_FILES="$CONFIG_FILES manuals/mm17dread-modbus-rtu.1" ;;
+    "manuals/mm17dread-modbus-tcp.1") CONFIG_FILES="$CONFIG_FILES manuals/mm17dread-modbus-tcp.1" ;;
     "source/mm17dread/config.pas") CONFIG_FILES="$CONFIG_FILES source/mm17dread/config.pas" ;;
 
   *) as_fn_error $? "invalid argument: \`$ac_config_target'" "$LINENO" 5;;
