@@ -14,7 +14,7 @@ protocol (HTTP, Modbus/TCP and Modbus/RTU).
 The 'wget' program required for the 'mm17dread-http' script to work can
 be found in all Linux distributions, install it with the package manager.
 The 'modpoll' program required for 'mm17dread-modbus-*' scripts to work
-can be downloaded from https://www.modbusdriver.com/modpoll.html.
+can be downloaded from <https://www.modbusdriver.com/modpoll.html>.
 
 2. How to get installer package for my OS?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -51,7 +51,7 @@ c. Download from Debian repository
 3. Contact
 ~~~~~~~~~~
    Homepage:             <http://www.pozsarzs.hu>
-   Author:               Pozsar Zsolt
+   Author:               Pozsár Zsolt
    E-mail:               <pozsarzs@gmail.com>
    Phone:                +36 56/470-272
    Mobile:               +36 30/249-5030
