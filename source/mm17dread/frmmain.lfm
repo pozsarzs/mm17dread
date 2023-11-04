@@ -494,7 +494,7 @@ object Form1: TForm1
         Left = 4
         Height = 195
         Top = 4
-        Width = 361
+        Width = 268
         Anchors = [akTop, akLeft, akRight, akBottom]
         BorderSpacing.Around = 4
         DefaultColWidth = 0
@@ -517,7 +517,7 @@ object Form1: TForm1
         )
         ColWidths = (
           170
-          171
+          78
         )
       end
     end

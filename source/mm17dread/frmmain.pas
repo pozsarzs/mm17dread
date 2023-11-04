@@ -191,9 +191,6 @@ begin
   Label4.Caption := '? °C';
   Label18.Caption := '? °C';
   ValueListEditor1.Cols[1].Clear;
-  ValueListEditor1.Cells[1, 6] := Label3.Caption;
-  ValueListEditor1.Cells[1, 7] := Label4.Caption;
-  ValueListEditor1.Cells[1, 8] := Label18.Caption;
   Memo1.Clear;
   // get software information
   if getdatafromdevice(ComboBox1.Text, 0) then
@@ -252,6 +249,8 @@ begin
     ShowMessage(MESSAGE03);
     exit;
   end;
+  ValueListEditor1.Cells[1, 8] := inttostr(ValueListEditor1.Cells[1, 8].ToInteger - 273);
+  ValueListEditor1.Cells[1, 9] := inttostr(ValueListEditor1.Cells[1, 9].ToInteger - 273);
   // display
   Label3.Caption := ValueListEditor1.Cells[1, 7] + ' %';
   Label4.Caption := ValueListEditor1.Cells[1, 8] + ' °C';

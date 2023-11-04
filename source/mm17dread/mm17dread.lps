@@ -7,7 +7,6 @@
       <Unit0>
         <Filename Value="mm17dread.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <CursorPos Y="7"/>
         <UsageCount Value="75"/>
         <Loaded Value="True"/>
@@ -18,8 +17,10 @@
         <ComponentName Value="Form1"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <CursorPos Y="7"/>
+        <TopLine Value="246"/>
+        <CursorPos X="84" Y="253"/>
         <UsageCount Value="75"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -27,6 +28,7 @@
       <Unit2>
         <Filename Value="untcommonproc.pas"/>
         <EditorIndex Value="3"/>
+        <TopLine Value="61"/>
         <CursorPos Y="7"/>
         <UsageCount Value="36"/>
         <Loaded Value="True"/>
@@ -63,7 +65,7 @@
         <UsageCount Value="10"/>
       </Unit6>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="28" HistoryIndex="27">
       <Position1>
         <Filename Value="frmmain.pas"/>
         <Caret Line="351" TopLine="340"/>
@@ -170,20 +172,12 @@
       </Position26>
       <Position27>
         <Filename Value="frmmain.pas"/>
-        <Caret Line="113" TopLine="245"/>
+        <Caret Line="152" Column="45" TopLine="131"/>
       </Position27>
       <Position28>
         <Filename Value="frmmain.pas"/>
-        <Caret Line="152" Column="45" TopLine="131"/>
-      </Position28>
-      <Position29>
-        <Filename Value="frmmain.pas"/>
-        <Caret Line="101" Column="39" TopLine="118"/>
-      </Position29>
-      <Position30>
-        <Filename Value="frmmain.pas"/>
         <Caret Line="235"/>
-      </Position30>
+      </Position28>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
