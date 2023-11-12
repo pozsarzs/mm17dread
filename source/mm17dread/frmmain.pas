@@ -278,15 +278,12 @@ begin
   begin
     Memo1.Clear;
     for i := 0 to Value.Count - 1 do
-      if findpart('<tr><td><pre>', Value.Strings[i]) <> 0 then
+      if findpart('<tr><td align=right><b>', Value.Strings[i]) <> 0 then
       begin
         Value.Strings[i] := rmchr3(Value.Strings[i]);
-        Value.Strings[i] := stringreplace(Value.Strings[i], '<tr><td><pre>',
-          '', [rfReplaceAll]);
-        Value.Strings[i] := stringreplace(Value.Strings[i],
-          '</pre></td><td><pre>', #9, [rfReplaceAll]);
-        Value.Strings[i] := stringreplace(Value.Strings[i], '</pre></td></tr>',
-          '', [rfReplaceAll]);
+        Value.Strings[i] := stringreplace(Value.Strings[i], '<tr><td align=right><b>', '', [rfReplaceAll]);
+        Value.Strings[i] := stringreplace(Value.Strings[i], '</b></td><td>', #9, [rfReplaceAll]);
+        Value.Strings[i] := stringreplace(Value.Strings[i], '</td></tr>', '', [rfReplaceAll]);
         Memo1.Lines.Insert(0, Value.Strings[i]);
       end;
     Memo1.SelStart := 0;
