@@ -23,7 +23,13 @@
 
 # constants
 PRGNAME="modpoll"
-PRGARGS="-a 1 -m tcp -r 1 -1 -o 1"
+PRGARGS="-m tcp -a 1 -o 1 -1 -r 1"
+# Used modpoll parameters:
+#  -m tcp        MODBUS/TCP protocol
+#  -a #          Slave address
+#  -o #          Time-out in seconds
+#  -1            Poll only once only
+#  -r #          Start reference
 
 # messages
 MSG=("MM17DRead-Modbus/TCP data reader script v0.1\n" \
@@ -32,7 +38,11 @@ MSG=("MM17DRead-Modbus/TCP data reader script v0.1\n" \
      "ERROR #3: Bad IP address!" \
      "ERROR #4: " \
      "ERROR #5: Data retrieving error!" \	
-     "The '"$PRGNAME"' program required for the script to work\ncan be downloaded from https://www.modbusdriver.com/modpoll.html.")
+     "The '"$PRGNAME"' program required for the script to work\ncan be downloaded from https://www.modbusdriver.com/modpoll.html." \
+     "\nRead discrete outputs (0xxxx):" \
+     "\nRead discrete inputs (1xxxx):" \
+     "\nRead input registers (3xxxx):" \
+     "\nRead holding registers (4xxxx):")
 
 function message()
 {
@@ -41,6 +51,7 @@ function message()
 
 function checkprog()
 {
+  
   if [ "$PRGNAME:" = "`whereis -b $PRGNAME`" ];
   then
     return 1
@@ -73,14 +84,22 @@ function checkipaddress()
 
 function readdevice()
 {
+  # Used modpoll parameters:
+  #  -c #          Number of values to read
+  #  -t 1          Discrete input data type
+  #  -t 3          16-bit input register data type
+  #  -t 4          16-bit output (holding) register data type (default)
+  message 10
   if ! $PRGNAME $PRGARGS -c 3 -t 3 $1 | grep "\[";
   then
     return 1
   else
+    message 9
     if ! $PRGNAME $PRGARGS -c 3 -t 1 $1 | grep "\[";
     then
       return 1
     else
+      message 11
       if ! $PRGNAME $PRGARGS -c 28 -t 4 $1 | grep "\[";
       then
         return 1

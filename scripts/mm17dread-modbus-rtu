@@ -23,7 +23,17 @@
 
 # constants
 PRGNAME="modpoll"
-PRGARGS="-a 1 -m rtu -r 1 -b9600 -p none -d 8 -s 1 -1 -o 2"
+PRGARGS="-m rtu -b9600 -d 8 -s 1 -p none -a 1 -o 2 -1 -r 1"
+# Used modpoll parameters:
+#  -m rtu        MODBUS/RTU protocol
+#  -b #          Baudrate
+#  -d #          Databits
+#  -s #          Stopbits
+#  -p none       No parity
+#  -a #          Slave address
+#  -o #          Time-out in seconds
+#  -1            Poll only once only
+#  -r #          Start reference
 
 # messages
 MSG=("MM17DRead-Modbus/RTU data reader script v0.1\n" \
@@ -32,7 +42,11 @@ MSG=("MM17DRead-Modbus/RTU data reader script v0.1\n" \
      "ERROR #3: "\
      "ERROR #4: " \
      "ERROR #5: Data retrieving error!" \	
-     "The '"$PRGNAME"' program required for the script to work\ncan be downloaded from https://www.modbusdriver.com/modpoll.html.")
+     "The '"$PRGNAME"' program required for the script to work\ncan be downloaded from https://www.modbusdriver.com/modpoll.html." \
+     "\nRead discrete outputs (0xxxx):" \
+     "\nRead discrete inputs (1xxxx):" \
+     "\nRead input registers (3xxxx):" \
+     "\nRead holding registers (4xxxx):")
 
 function message()
 {
@@ -51,14 +65,22 @@ function checkprog()
 
 function readdevice()
 {
+  # Used modpoll parameters:
+  #  -c #          Number of values to read
+  #  -t 1          Discrete input data type
+  #  -t 3          16-bit input register data type
+  #  -t 4          16-bit output (holding) register data type (default)
+  message 10
   if ! $PRGNAME $PRGARGS -c 3 -t 3 $1 | grep "\[";
   then
     return 1
   else
+    message 9
     if ! $PRGNAME $PRGARGS -c 3 -t 1 $1 | grep "\[";
     then
       return 1
     else
+      message 11
       if ! $PRGNAME $PRGARGS -c 28 -t 4 $1 | grep "\[";
       then
         return 1
